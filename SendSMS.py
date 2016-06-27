@@ -27,7 +27,7 @@ while True:
 	folder = voice.search('NuffinNuffin')
 	if len(folder) == 1:
 		print 'hellowzworld'
-		message = 'HellowzWorld' #input('Message text: ')
+		message = 'HellowzWorld'
 		voice.send_sms(sendTo,message)
 		sleep(5)
 		continue
