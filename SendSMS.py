@@ -36,9 +36,6 @@ while True:
 		sleep(5)
 
 """
-voice = Voice()
-voice.login()
-
 for message in voice.sms().messages:
     if message.isRead:
         message.delete()
