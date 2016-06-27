@@ -1,5 +1,4 @@
 from googlevoice import Voice,util
-from time import sleep
 
 voice = Voice()
 
@@ -30,6 +29,7 @@ while True:
 		message = 'HellowzWorld' #input('Message text: ')
 		voice.send_sms(sendTo,message)
 		sleep(5)
+		continue
 	else:
 		print 'nuffin here to see'
 		sleep(5)
