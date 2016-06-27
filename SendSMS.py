@@ -1,5 +1,3 @@
-from googlevoice import Voice
-from googlevoice.util import input
 from googlevoice import Voice,util
 from time import sleep
 
