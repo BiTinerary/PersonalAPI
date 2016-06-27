@@ -1,4 +1,5 @@
 from googlevoice import Voice,util
+from time import sleep
 
 voice = Voice()
 
