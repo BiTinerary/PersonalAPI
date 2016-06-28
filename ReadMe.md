@@ -1,7 +1,7 @@
 #Requirements:
 pip install pygooglevoice
 (All others should be included in Python by default)
-~ A google voice account w/ specificed phone number (<a href ="https://www.google.com/voice#inbox")
+~ A google voice account w/ specificed phone number (https://www.google.com/voice)
 
 Energy efficient device that can be left on and connected to WiFi connection which continuously runs a python script. ie:
 ~ Raspi or equivalent SBC
