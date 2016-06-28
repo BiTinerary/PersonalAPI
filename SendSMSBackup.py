@@ -2,8 +2,6 @@ from googlevoice import Voice,util
 from time import sleep
 import urllib2
 import json
-import os
-import uuid
 
 voice = Voice()
 
@@ -29,7 +27,7 @@ finally:
 	sendToNumba.close()
 
 def getTemp():
-	f = urllib2.urlopen('http://api.wunderground.com/api/'+ lineD +'/geolookup/conditions/q/MN/Minneapolis.json')
+	f = urllib2.urlopen("http://api.wunderground.com/api/%s/geolookup/conditions/q/MN/Minneapolis.json") % lineD # Why did %s (% lineD) string substitution work before, then throw urllib error?
 	json_string = f.read()
 	parsed_json = json.loads(json_string)
 	location = parsed_json['location']['city']
@@ -54,39 +52,16 @@ def deleteReadMessages():
 	    if message.isRead:
 	        message.delete()
 
-def newLogIn():
-	return 'New Log In'
-
-def Shutdown():
-	timeStampUUID = uuid.uuid1() #gwmi win32_bios | fl SerialNumber
-	return 'Shutting down:\n' + str(timeStampUUID)
-
 voice.login(NeedsEncryption, NeedsMoreEncryption)
 
 while True:
-	WeatherCommand = voice.search('Weather')
-	LoggedCommand = voice.search('Logged')
-	ShutDownCommand = voice.search('Shutdown')
-	RebootCommand = voice.search('Reboot')
-	if len(WeatherCommand) == 1:
+	folder = voice.search('Weather')
+	if len(folder) == 1:
 		message = str(getTemp())
-		voice.send_sms(sendTo, message)
+		voice.send_sms(sendTo,message)
 		markAsRead()
 		deleteReadMessages()
 		print "Weather SMS Sent"
-	elif len(LoggedCommand) == 1:
-		message = str(newLogIn())
-		voice.send_sms(sendTo, message)
-		markAsRead()
-		deleteReadMessages()
-	elif len(ShutDownCommand) == 1:
-		message = str(Shutdown())
-		voice.send_sms(sendTo, message)
-		markAsRead()
-		deleteReadMessages()
-		os.system('shutdown -s -t 0 /f')
 	else:
 		print 'Nuffin to see here'
 		sleep(5)
-
-computerLoggedInOrIsOn()
