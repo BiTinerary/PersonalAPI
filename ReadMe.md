@@ -3,7 +3,7 @@ pip install pygooglevoice<br>
 (All others should be included in Python by default)<br>
 ~ A google voice account w/ specificed phone number (https://www.google.com/voice)<br>
 
-Energy efficient device that can be left on and connected to WiFi connection which continuously runs a python script. ie:<br>
+Device that can be left on, connected to WiFi and run Python. ie:<br>
 ~ Raspi or equivalent SBC<br>
 ~ An extra Smartphone (capable of running QPython app)<br>
 <br>
