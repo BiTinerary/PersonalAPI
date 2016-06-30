@@ -1,5 +1,6 @@
 #Requirements:<br>
-pip install pygooglevoice<br>
+`pip install pygooglevoice`
+`pip install pycrypto`<br>
 (All others should be included in Python by default)<br>
 ~ A google voice account w/ specificed phone number (https://www.google.com/voice)<br>
 
