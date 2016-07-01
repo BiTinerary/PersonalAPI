@@ -5,6 +5,7 @@ import json
 import os
 from Crypto.Cipher import AES
 import base64
+import subprocess
 
 def Cipher(encryptme):
 	BLOCK_SIZE = 32
@@ -76,9 +77,11 @@ def deleteReadMessages():
 	        message.delete()
 
 def newLogIn():
-	return 'New Log In'
+	UserName = os.getenv('USERNAME')
+	ComputerName = os.environ['COMPUTERNAME']
+	return 'Someone is Logged onto:\n User: %s\n Computer: %s' % (ComputerName, UserName)
 
-def Shutdown(): #gwmi win32_bios | fl SerialNumber
+def Shutdown():
 	return 'Shutting down:\n'
 
 while True:
@@ -99,6 +102,7 @@ while True:
 		voice.send_sms(SendTo, message)
 		markAsRead()
 		deleteReadMessages()
+		print "Logged SMS Sent"
 	elif len(ShutDownCommand) == 1:
 		message = str(Shutdown())
 		voice.send_sms(SendTo, message)
