@@ -5,7 +5,6 @@ import json
 import os
 from Crypto.Cipher import AES
 import base64
-import binascii
 
 def Cipher(encryptme):
 	BLOCK_SIZE = 32
