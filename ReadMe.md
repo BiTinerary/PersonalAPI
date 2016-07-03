@@ -8,7 +8,7 @@ Windows for some hard coded commands.<br>
 Device that can be left on, connected to WiFi and run Python. ie:<br>
 ~ Raspi or equivalent SBC<br>
 ~ An extra Smartphone (capable of running QPython app)<br>
-<br>
+
 ### Ideas Why?<br>
 Send me a text if:<br>
 ~ My personal computer was just turned on. If it's not me, gather IP, geoloc, etc... and force shutdown.<br>
@@ -17,7 +17,7 @@ Send me a text if:<br>
 ~ I'm supposed to be at work in an hour (which then sets off an alarm)<br>
 ~ I would like to know when the next bus runs by my house/leaving work.<br>
 ~ I would like to know my current bank account balance/credit score/credit available<br>
-<br>
+
 #### Overall process<br>
 
 ~ `While` loop script to constantly check inbox of Google Voice <br>
