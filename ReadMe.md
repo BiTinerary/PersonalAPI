@@ -11,7 +11,7 @@ Device that can be left on, connected to WiFi and run Python. ie:<br>
 
 ### Ideas Why?<br>
 Send me a text if:<br>
-~ My personal computer was just turned on. If it's not me, gather IP, geoloc, etc... and force shutdown.<br>
+~ <strike>My personal computer was just turned on.</strike> If it's not me, gather IP, geoloc, take webcam picture, etc... <strike>and force shutdown.</strike><br>
 ~ I want to send a magic packet to WOL or WoWLAN<br>
 ~ I would like to know the weather. Is it going to rain? Good for biking to work?<br>
 ~ I'm supposed to be at work in an hour (which then sets off an alarm)<br>
