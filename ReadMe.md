@@ -1,6 +1,6 @@
 #Requirements:<br>
 Windows for some hard coded commands.<br>
-<bull>Use `os.system` in conjunction with `if/else/try/except` to determine os and send shutdown command, etc...<br>
+<pre>Use `os.system` in conjunction with `if/else/try/except` to determine os and send shutdown command, etc...<br>
 `pip install pygooglevoice`<br>
 `pip install pycrypto`<br>
 (All others should be included in Python by default)<br>
