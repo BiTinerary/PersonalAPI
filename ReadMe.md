@@ -31,4 +31,6 @@ Send me a text if:<br>
 
 ~ Add street parking command. `If` weather condish `==` severe snow warning, `then` 1st, 2nd, 3rd day? Send SMS with respective odd or even side of the street.<br>
 
-Use `os.system` in conjunction with `if/else/try/except` to determine os and send shutdown command, etc...<br>
+~ Use `os.system` in conjunction with `if/else/try/except` to determine os and send shutdown command, etc...<br>
+
+~ Computer repair command. W/portable Python or packaged `.exe`, run this script simultaneously on several computers (computer repair shop) `if` keyword `repair` is in GoogleVoice, run a/some basic diagnostics for each computer. HDD, RAM, VirusScan, etc.... Further `read` log files of portable progs (CrystalDiskInfo, NirSoft, etc...) that are generated automatically upon running. Via `json` module, `If` log file parameter contains "HDD Health Bad," collect. Rinse and Repeate. SMS the collective results.
