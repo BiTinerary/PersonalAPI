@@ -25,22 +25,22 @@ try:
 	with open('obfuscateMe.txt', 'r') as obfuscateMe:
 		for lineA in obfuscateMe:
 			NeedsEncryption = lineA
-			Cipher(NeedsEncryption)
+			#Cipher(NeedsEncryption)
 
 	with open('obfuscateEncryptionMe.txt', 'r') as obEncryptionMe:
 		for lineB in obEncryptionMe:
 			NeedsMoreEncryption = lineB
-			Cipher(NeedsMoreEncryption)
+			#Cipher(NeedsMoreEncryption)
     
 	with open('SendTo.txt', 'r') as sendToNumba:
 		for lineC in sendToNumba:
 			SendTo = lineC
-			Cipher(SendTo)
+			#Cipher(SendTo)
 
 	with open('APIKey.txt', 'r') as APIKeyText:
 		for lineD in APIKeyText:
 			APIKey = lineD
-			Cipher(APIKey)
+			#Cipher(APIKey)
 
 finally:
 	obfuscateMe.close()
@@ -78,13 +78,16 @@ def deleteReadMessages():
 def newLogIn():
 	UserName = os.getenv('USERNAME')
 	ComputerName = os.environ['COMPUTERNAME']
-	return 'Someone is Logged onto:\n User: %s\n Computer: %s' % (ComputerName, UserName)
+	return 'Someone signed onto:\nUser: %s\nComputer: %s' % (ComputerName, UserName)
 
 def Shutdown():
-	return 'Shutting down:\n'
+	UserName = os.getenv('USERNAME')
+	ComputerName = os.environ['COMPUTERNAME']
+	return 'Shutting down:\nUser: %s\nComputer: %s' % (ComputerName, UserName)
 
 while True:
 	#CommandList = ['Weather', "Logged", 'Shutdown', 'Reboot']
+	#WeatherCommand = voice.search('Weather', 'Logged', 'Shutdown', 'Reboot')
 	WeatherCommand = voice.search('Weather')
 	LoggedCommand = voice.search('Logged')
 	ShutDownCommand = voice.search('Shutdown')
@@ -107,7 +110,7 @@ while True:
 		voice.send_sms(SendTo, message)
 		markAsRead()
 		deleteReadMessages()
-		#os.system('shutdown -s -t 0 /f')
+		os.system('shutdown -r -t 0 -f')
 	else:
 		print 'Nuffin to see here'
 		sleep(5)

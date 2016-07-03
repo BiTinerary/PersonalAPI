@@ -5,7 +5,6 @@ import json
 import os
 from Crypto.Cipher import AES
 import base64
-import subprocess
 
 def Cipher(encryptme):
 	BLOCK_SIZE = 32
@@ -53,8 +52,8 @@ voice.login(NeedsEncryption, NeedsMoreEncryption)
 def newLogIn():
 	UserName = os.getenv('USERNAME')
 	ComputerName = os.environ['COMPUTERNAME']
-	return 'Someone is Logged onto:\n User: %s\n Computer: %s' % (ComputerName, UserName)
+	message = 'Someone signed onto:\nUser: %s\nComputer: %s' % (ComputerName, UserName)
+	voice.send_sms(SendTo, message)
+	print "Logged SMS Sent"
 
-message = str(newLogIn())
-voice.send_sms(SendTo, message)
-print "Logged SMS Sent"
+newLogIn()
