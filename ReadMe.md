@@ -1,6 +1,5 @@
 #Requirements:<br>
 Windows for some hard coded commands.<br>
-Use `os.system` in conjunction with `if/else/try/except` to determine os and send shutdown command, etc...<br>
 `pip install pygooglevoice`<br>
 `pip install pycrypto`<br>
 (All others should be included in Python by default)<br>
@@ -28,6 +27,8 @@ Send me a text if:<br>
 ~ Repeat loop <br>
 
 # TODO
-~ `Try/except` command on login script to `try urllib` command `except` `if` it spits an error because computer isn't connected to wifi. `Then` repeat `while` loop
+~ `Try/except` command on login script to `try urllib` command `except` `if` it spits an error because computer isn't connected to wifi. `Then` repeat `while` loop<br>
 
-~ Add street parking command. `If` weather condish `==` severe snow warning, `then` 1st, 2nd, 3rd day? Send SMS with respective odd or even side of the street.
+~ Add street parking command. `If` weather condish `==` severe snow warning, `then` 1st, 2nd, 3rd day? Send SMS with respective odd or even side of the street.<br>
+
+Use `os.system` in conjunction with `if/else/try/except` to determine os and send shutdown command, etc...<br>
