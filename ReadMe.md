@@ -14,8 +14,8 @@ Send me a text if:<br>
 ~ <strike>My personal computer was just turned on.</strike> If it's not me, gather IP, geoloc, take webcam picture, etc... <strike>and force shutdown.</strike><br>
 ~ I want to send a magic packet to WOL or WoWLAN<br>
 ~ <strike>I would like to know the weather. Is it going to rain? Good for biking to work?</strike><br>
+~ Does my Wife need the car today based on her schedule? When does the next bus runs by my house/leaving work?
 ~ I'm supposed to be at work in an hour (which then sets off an alarm)<br>
-~ I would like to know when the next bus runs by my house/leaving work.<br>
 ~ I would like to know my current bank account balance/credit score/credit available<br>
 
 #### Overall process<br>
