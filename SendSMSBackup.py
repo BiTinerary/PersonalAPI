@@ -5,7 +5,6 @@ import json
 import os
 from Crypto.Cipher import AES
 import base64
-import re
 
 def Cipher(encryptme):
 	BLOCK_SIZE = 32
@@ -14,8 +13,8 @@ def Cipher(encryptme):
 	EncodeAES = lambda c, s: base64.b64encode(c.encrypt(pad(s)))
 	DecodeAES = lambda c, e: c.decrypt(base64.b64decode(e)).rstrip(PADDING)
 	secret = os.urandom(BLOCK_SIZE)
-	
 	cipher = AES.new(secret)
+
 	encoded = EncodeAES(cipher, encryptme)
 	decoded = DecodeAES(cipher, encoded)
 	return str(decoded)
@@ -50,33 +49,16 @@ finally:
 
 voice.login(NeedsEncryption, NeedsMoreEncryption)
 
-def Forecast(areaCode):
-	areaCode = str(areaCode)
-	forecast = urllib2.urlopen('http://api.openweathermap.org/data/2.5/forecast?q='+ areaCode +',US&appid='+ APIKey +'&mode=json&&units=imperial')
-	jsonString = forecast.read()
-	parsedJson = json.loads(jsonString)
-	location = parsedJson['city']['name']
-	middayTomorrowList = parsedJson['list'][6]
-	date = middayTomorrowList['dt_txt']
-	lowAndHigh = [middayTomorrowList['main']['temp_max'], middayTomorrowList['main']['temp_min']]
-	humidity = middayTomorrowList['main']['humidity']
-	weather = [middayTomorrowList['weather'][0]['main'], middayTomorrowList['weather'][0]['description']]
-	forecast.close()
-	return str('Tomorrow in: %s\nTime: %s\nHigh: %s*F Low: %s*F\n%s, %s.\nHumidity: %s') % (location, date, lowAndHigh[0], lowAndHigh[1], weather[0], weather[1], humidity)
-
-def Weather(areaCode):
-	areaCode = str(areaCode)
-	weatherRightNow = urllib2.urlopen('http://api.openweathermap.org/data/2.5/weather?q='+ areaCode +',US&appid='+ APIKey +'&mode=json&&units=imperial')
-	jsonString = weatherRightNow.read()
-	parsedJson = json.loads(jsonString)
-	location = parsedJson['name']
-	condishList = parsedJson['main']
-	tempHighLowAvg = [condishList['temp'], condishList['temp_max'], condishList['temp_min']]
-	weatherList = parsedJson['weather'][0]
-	weather = [weatherList['main'], weatherList['description']]
-	humidity = condishList['humidity']
-	weatherRightNow.close()
-	return str('Today in: %s\nAverage: %s\nHigh: %s*F Low: %s*F\n%s, %s.\nHumidity: %s') % (location, tempHighLowAvg[0], tempHighLowAvg[1], tempHighLowAvg[2], weather[0], weather[1], humidity)
+def getTemp():
+	f = urllib2.urlopen('http://api.wunderground.com/api/'+ lineD +'/geolookup/conditions/q/MN/Minneapolis.json')
+	json_string = f.read()
+	parsed_json = json.loads(json_string)
+	location = parsed_json['location']['city']
+	temp_f = parsed_json['current_observation']['temp_f']
+	condish = parsed_json['current_observation']['relative_humidity']
+	weather = parsed_json['current_observation']['weather']
+	return "%s:\nTemp: %s*F\nHumidity: %s\nWeather: %s" % (location, temp_f, condish, weather)
+	f.close()
 
 def markAsRead():
 	while True :
@@ -96,7 +78,7 @@ def deleteReadMessages():
 def newLogIn():
 	UserName = os.getenv('USERNAME')
 	ComputerName = os.environ['COMPUTERNAME']
-	return 'Someone logged onto:\nUser: %s\nComputer: %s' % (ComputerName, UserName)
+	return 'Someone signed onto:\nUser: %s\nComputer: %s' % (ComputerName, UserName)
 
 def Shutdown():
 	UserName = os.getenv('USERNAME')
@@ -105,16 +87,14 @@ def Shutdown():
 
 while True:
 	#CommandList = ['Weather', "Logged", 'Shutdown', 'Reboot']
-	#for trigger in CommandList:
-	#	voice.search(trigger)
 	#WeatherCommand = voice.search('Weather', 'Logged', 'Shutdown', 'Reboot')
 	WeatherCommand = voice.search('Weather')
-	ForecastCommand = voice.search('Forecast')
 	LoggedCommand = voice.search('Logged')
 	ShutDownCommand = voice.search('Shutdown')
 	RebootCommand = voice.search('Reboot')
+	
 	if len(WeatherCommand) == 1:
-		message = str(Weather(55106))
+		message = str(getTemp())
 		voice.send_sms(SendTo, message)
 		markAsRead()
 		deleteReadMessages()
@@ -130,7 +110,7 @@ while True:
 		voice.send_sms(SendTo, message)
 		markAsRead()
 		deleteReadMessages()
-		os.system('shutdown -s -t 0 -f')
+		os.system('shutdown -r -t 0 -f')
 	else:
 		print 'Nuffin to see here'
 		sleep(5)
