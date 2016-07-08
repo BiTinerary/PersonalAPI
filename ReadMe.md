@@ -2,6 +2,7 @@
 Windows for some hard coded commands.<br>
 `pip install pygooglevoice`<br>
 `pip install pycrypto`<br>
+`pip install wakeonlan`<br>
 (All others should be included in Python by default)<br>
 ~ A google voice account w/ specificed phone number (https://www.google.com/voice)<br>
 
