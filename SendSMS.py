@@ -6,6 +6,7 @@ import os
 from Crypto.Cipher import AES
 import base64
 import re
+from wakeonlan import wol
 
 def Cipher(encryptme):
 	BLOCK_SIZE = 32
@@ -42,6 +43,9 @@ try:
 		for lineD in APIKeyText:
 			APIKey = lineD
 			#Cipher(APIKey)
+	with open('MACString.txt', 'r') as MACString:
+		for lineE in MACString
+			MAC = lineE
 
 finally:
 	obfuscateMe.close()
@@ -103,6 +107,10 @@ def Shutdown():
 	ComputerName = os.environ['COMPUTERNAME']
 	return 'Shutting down:\nUser: %s\nComputer: %s' % (ComputerName, UserName)
 
+def WOL():
+	wol.send_magic_packet('%s') % (MAC)#, ip_address='XX.XX.XX.XX', port=7)
+	return "Magic Packet Sent!"
+
 while True:
 	#CommandList = ['Weather', "Logged", 'Shutdown', 'Reboot']
 	#for trigger in CommandList:
@@ -113,12 +121,24 @@ while True:
 	LoggedCommand = voice.search('Logged')
 	ShutDownCommand = voice.search('Shutdown')
 	RebootCommand = voice.search('Reboot')
+	WOLCommand = voice.search('WOL')
 	if len(WeatherCommand) == 1:
-		message = str(Weather(55106))
+		message = str(Weather(55403))
 		voice.send_sms(SendTo, message)
 		markAsRead()
 		deleteReadMessages()
 		print "Weather SMS Sent"
+	elif len(ForecastCommand) == 1:
+		message = str(Forecast(55403))
+		voice.send_sms(SendTo, message)
+		markAsRead()
+		deleteReadMessages()
+		print "Forecast SMS Sent"
+	elif len(WOLCommand) == 1:
+		message = str(WOL())
+		voice.send_sms(SendTo, message)
+		markAsRead()
+		deleteReadMessages()
 	elif len(LoggedCommand) == 1:
 		message = str(newLogIn())
 		voice.send_sms(SendTo, message)
