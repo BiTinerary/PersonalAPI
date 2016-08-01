@@ -16,7 +16,6 @@ Send me a text if:<br>
 ~ I want to send a <strike>magic packet to WOL</strike> or WoWLAN Note: Need to add external host, port forwarding, WOL.<br>
 ~ <strike>I would like to know the weather. Is it going to rain? Good for biking to work?</strike><br>
 ~ Does my Wife need the car today based on her schedule? When does the next bus run by my house/leaving work?<br>
-~ I'm supposed to be at work in an hour (which then sets off an alarm)<br>
 ~ I would like to know my current bank account balance/credit score/credit available<br>
 
 #### Overall process<br>
