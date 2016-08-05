@@ -1,6 +1,6 @@
 from googlevoice import Voice,util
 from time import sleep
-import urllib2
+import requests
 import json
 import os
 from Crypto.Cipher import AES
@@ -39,8 +39,8 @@ voice.login(CredzList[2], CredzList[1])
 
 def Forecast(areaCode):
 	areaCode = str(areaCode)
-	forecast = urllib2.urlopen('http://api.openweathermap.org/data/2.5/forecast?q='+ areaCode +',US&appid='+ aPIKey +'&mode=json&&units=imperial')
-	jsonString = forecast.read()
+	forecast = requests.get('http://api.openweathermap.org/data/2.5/forecast?q='+ areaCode +',US&appid='+ aPIKey +'&mode=json&&units=imperial')
+	jsonString = forecast.text[0:]
 	parsedJson = json.loads(jsonString)
 	location = parsedJson['city']['name']
 	middayTomorrowList = parsedJson['list'][6]
@@ -53,8 +53,8 @@ def Forecast(areaCode):
 
 def Weather(areaCode):
 	areaCode = str(areaCode)
-	weatherRightNow = urllib2.urlopen('http://api.openweathermap.org/data/2.5/weather?q='+ areaCode +',US&appid='+ aPIKey +'&mode=json&&units=imperial')
-	jsonString = weatherRightNow.read()
+	weatherRightNow = requests.get('http://api.openweathermap.org/data/2.5/weather?q='+ areaCode +',US&appid='+ aPIKey +'&mode=json&&units=imperial')
+	jsonString = weatherRightNow.text[0:]
 	parsedJson = json.loads(jsonString)
 	location = parsedJson['name']
 	condishList = parsedJson['main']
