@@ -23,7 +23,8 @@ voice = Voice()
 
 
 try:
-	w = open('C:/Users/G/Desktop/SendSMSPy/AllCredz.txt')
+	currentWorkingDir = os.getcwd()
+	w = open(currentWorkingDir + './AllCredz.txt')
 	voiceNumba = w.readline()
 	pSWRD = w.readline()
 	eMail = w.readline()
