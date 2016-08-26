@@ -3,44 +3,29 @@ from time import sleep
 import requests
 import json
 import os
-from Crypto.Cipher import AES
-import base64
-
-def Cipher(encryptme):
-	BLOCK_SIZE = 32
-	PADDING = '{'
-	pad = lambda s: s + (BLOCK_SIZE - len(s) % BLOCK_SIZE) * PADDING
-	EncodeAES = lambda c, s: base64.b64encode(c.encrypt(pad(s)))
-	DecodeAES = lambda c, e: c.decrypt(base64.b64decode(e)).rstrip(PADDING)
-	secret = os.urandom(BLOCK_SIZE)
-	cipher = AES.new(secret)
-
-	encoded = EncodeAES(cipher, encryptme)
-	decoded = DecodeAES(cipher, encoded)
-	return str(decoded)
-
-voice = Voice()
-
 
 try:
 	currentWorkingDir = os.getcwd()
-	w = open(currentWorkingDir + './AllCredz.txt')
+	w = open(currentWorkingDir + '/AllCredz.txt')
 	voiceNumba = w.readline()
 	pSWRD = w.readline()
 	eMail = w.readline()
 	endUserNumba = w.readline()
 	aPIKey = w.readline()
-	CredzList = [voiceNumba, pSWRD, eMail, endUserNumba, aPIKey]
-	#return voiceNumba, pSWRD, eMail, endUserNumba, aPIKey
-
 finally:
 	w.close()
 
-voice.login(CredzList[2], CredzList[1])
+voice = Voice()
+voice.login(eMail, pSWRD)
+areaCode = 55403
+
+def link():
+	link = "http://api.openweathermap.org/data/2.5/forecast?q=%s,US&appid=%s&mode=json&&units=imperial" % (areaCode, aPIKey)
+	return link
 
 def Forecast(areaCode):
 	areaCode = str(areaCode)
-	forecast = requests.get('http://api.openweathermap.org/data/2.5/forecast?q='+ areaCode +',US&appid='+ aPIKey +'&mode=json&&units=imperial')
+	forecast = requests.get(link())
 	jsonString = forecast.text[0:]
 	parsedJson = json.loads(jsonString)
 	location = parsedJson['city']['name']
@@ -54,10 +39,10 @@ def Forecast(areaCode):
 
 def Weather(areaCode):
 	areaCode = str(areaCode)
-	weatherRightNow = requests.get('http://api.openweathermap.org/data/2.5/weather?q='+ areaCode +',US&appid='+ aPIKey +'&mode=json&&units=imperial')
+	weatherRightNow = requests.get("http://api.openweathermap.org/data/2.5/forecast?q=%s,US&appid=%s&mode=json&&units=imperial" % (areaCode, aPIKey))
 	jsonString = weatherRightNow.text[0:]
 	parsedJson = json.loads(jsonString)
-	location = parsedJson['name']
+	location = parsedJson['city']['name']
 	condishList = parsedJson['main']
 	tempHighLowAvg = [condishList['temp'], condishList['temp_max'], condishList['temp_min']]
 	weatherList = parsedJson['weather'][0]
@@ -96,24 +81,21 @@ def WOL():
 	return "Magic Packet Sent!"
 
 while True:
-	#CommandList = ['Weather', "Logged", 'Shutdown', 'Reboot']
-	#for trigger in CommandList:
-	#	voice.search(trigger)
-	#WeatherCommand = voice.search('Weather', 'Logged', 'Shutdown', 'Reboot')
 	WeatherCommand = voice.search('Weather')
 	ForecastCommand = voice.search('Forecast')
 	LoggedCommand = voice.search('Logged')
 	ShutDownCommand = voice.search('Shutdown')
 	RebootCommand = voice.search('Reboot')
 	WOLCommand = voice.search('WOL')
+
 	if len(WeatherCommand) == 1:
-		message = str(Weather(55403))
+		message = str(Weather(areaCode))
 		voice.send_sms(endUserNumba, message)
 		markAsRead()
 		deleteReadMessages()
 		print "Weather SMS Sent"
 	elif len(ForecastCommand) == 1:
-		message = str(Forecast(55403))
+		message = str(Forecast(areaCode))
 		voice.send_sms(endUserNumba, message)
 		markAsRead()
 		deleteReadMessages()
@@ -140,40 +122,19 @@ while True:
 		sleep(5)
 
 """
-try:
-	with open('obfuscateMe.txt', 'r') as obfuscateMe:
-		for lineA in obfuscateMe:
-			NeedsEncryption = lineA
-			#Cipher(NeedsEncryption)
+#from Crypto.Cipher import AES
+#import base64
 
-	with open('obfuscateEncryptionMe.txt', 'r') as obEncryptionMe:
-		for lineB in obEncryptionMe:
-			NeedsMoreEncryption = lineB
-			#Cipher(NeedsMoreEncryption)
-    
-	with open('SendTo.txt', 'r') as sendToNumba:
-		for lineC in sendToNumba:
-			SendTo = lineC
-			#Cipher(SendTo)
+def Cipher(encryptme):
+	BLOCK_SIZE = 32
+	PADDING = '{'
+	pad = lambda s: s + (BLOCK_SIZE - len(s) % BLOCK_SIZE) * PADDING
+	EncodeAES = lambda c, s: base64.b64encode(c.encrypt(pad(s)))
+	DecodeAES = lambda c, e: c.decrypt(base64.b64decode(e)).rstrip(PADDING)
+	secret = os.urandom(BLOCK_SIZE)
+	cipher = AES.new(secret)
 
-	with open('APIKey.txt', 'r') as APIKeyText:
-		for lineD in APIKeyText:
-			APIKey = lineD
-			#Cipher(APIKey)
-finally:
-	obfuscateMe.close()
-	obEncryptionMe.close()
-	sendToNumba.close()
-"""
-"""
-def getTemp():
-	f = urllib2.urlopen('http://api.wunderground.com/api/'+ lineD +'/geolookup/conditions/q/MN/Minneapolis.json')
-	json_string = f.read()
-	parsed_json = json.loads(json_string)
-	location = parsed_json['location']['city']
-	temp_f = parsed_json['current_observation']['temp_f']
-	condish = parsed_json['current_observation']['relative_humidity']
-	weather = parsed_json['current_observation']['weather']
-	return "%s:\nTemp: %s*F\nHumidity: %s\nWeather: %s" % (location, temp_f, condish, weather)
-	f.close()
+	encoded = EncodeAES(cipher, encryptme)
+	decoded = DecodeAES(cipher, encoded)
+	return str(decoded)
 """
