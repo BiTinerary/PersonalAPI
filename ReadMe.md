@@ -26,7 +26,7 @@ Send me a text if:<br>
 ~ Repeat loop <br>
 
 # TODO
-~ Migrate `urllib2` modules and commands over to requests. (See Gist: https://gist.github.com/IzaacKirscht/0ede9fe6929d66e2c5d9f25cb42f4489)<br>
+<strike>~ Migrate `urllib2` modules and commands over to requests. (See Gist: https://gist.github.com/IzaacKirscht/0ede9fe6929d66e2c5d9f25cb42f4489)<br></strike>
 
 ~ `Try/except` command on login script to `try urllib` command `except` `if` it spits an error because computer isn't connected to wifi. `Then` repeat `while` loop<br>
 
