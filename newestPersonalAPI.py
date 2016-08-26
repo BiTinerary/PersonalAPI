@@ -22,7 +22,7 @@ try:
 finally:
 	w.close()
 
-voice.login('izaac.kirscht@gmail.com', '#!Nunyabidnezz')
+voice.login(eMail, pSWRD)
 
 def getAddress():
 		with open('curlOutput.txt', 'r') as f:
