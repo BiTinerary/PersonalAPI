@@ -10,7 +10,7 @@ voice = Voice()
 
 try:
 	currentWorkingDir = os.getcwd()
-	w = open(currentWorkingDir + './AllCredz.txt')
+	w = open(currentWorkingDir + '/AllCredz.txt')
 	voiceNumba = w.readline()
 	pSWRD = w.readline()
 	eMail = w.readline()
