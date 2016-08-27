@@ -3,8 +3,6 @@ from time import sleep
 import requests
 import json
 import os
-#from Crypto.Cipher import AES
-#import base64
 
 voice = Voice()
 
@@ -16,8 +14,6 @@ try:
 	eMail = w.readline()
 	endUserNumba = w.readline()
 	aPIKey = w.readline()
-	#CredzList = [voiceNumba, pSWRD, eMail, endUserNumba, aPIKey]
-	#return voiceNumba, pSWRD, eMail, endUserNumba, aPIKey
 
 finally:
 	w.close()
@@ -47,8 +43,6 @@ def getAddress():
 					messagez = 'CORRECT IPMAN!\nOld: %s\nNew: %s' % (simpleFormatFileIP, simpleFormatActualIP)
 					voice.send_sms(endUserNumba, messagez)
 					f.close()
-		#return messagez
-					#return
 
 def Forecast(areaCode):
 	areaCode = str(areaCode)
@@ -108,10 +102,6 @@ def WOL():
 	return "Magic Packet Sent!"
 
 while True:
-	#CommandList = ['Weather', "Logged", 'Shutdown', 'Reboot']
-	#for trigger in CommandList:
-	#	voice.search(trigger)
-	#WeatherCommand = voice.search('Weather', 'Logged', 'Shutdown', 'Reboot')
 	WeatherCommand = voice.search('Weather')
 	ForecastCommand = voice.search('Forecast')
 	LoggedCommand = voice.search('Logged')
@@ -158,54 +148,3 @@ while True:
 	else:
 		print 'Nuffin to see here'
 		sleep(5)
-
-"""
-try:
-	with open('obfuscateMe.txt', 'r') as obfuscateMe:
-		for lineA in obfuscateMe:
-			NeedsEncryption = lineA
-			#Cipher(NeedsEncryption)
-	with open('obfuscateEncryptionMe.txt', 'r') as obEncryptionMe:
-		for lineB in obEncryptionMe:
-			NeedsMoreEncryption = lineB
-			#Cipher(NeedsMoreEncryption)
-    
-	with open('SendTo.txt', 'r') as sendToNumba:
-		for lineC in sendToNumba:
-			SendTo = lineC
-			#Cipher(SendTo)
-	with open('APIKey.txt', 'r') as APIKeyText:
-		for lineD in APIKeyText:
-			APIKey = lineD
-			#Cipher(APIKey)
-finally:
-	obfuscateMe.close()
-	obEncryptionMe.close()
-	sendToNumba.close()
-"""
-"""
-def getTemp():
-	f = urllib2.urlopen('http://api.wunderground.com/api/'+ lineD +'/geolookup/conditions/q/MN/Minneapolis.json')
-	json_string = f.read()
-	parsed_json = json.loads(json_string)
-	location = parsed_json['location']['city']
-	temp_f = parsed_json['current_observation']['temp_f']
-	condish = parsed_json['current_observation']['relative_humidity']
-	weather = parsed_json['current_observation']['weather']
-	return "%s:\nTemp: %s*F\nHumidity: %s\nWeather: %s" % (location, temp_f, condish, weather)
-	f.close()
-"""
-"""
-def Cipher(encryptme):
-	BLOCK_SIZE = 32
-	PADDING = '{'
-	pad = lambda s: s + (BLOCK_SIZE - len(s) % BLOCK_SIZE) * PADDING
-	EncodeAES = lambda c, s: base64.b64encode(c.encrypt(pad(s)))
-	DecodeAES = lambda c, e: c.decrypt(base64.b64decode(e)).rstrip(PADDING)
-	secret = os.urandom(BLOCK_SIZE)
-	cipher = AES.new(secret)
-
-	encoded = EncodeAES(cipher, encryptme)
-	decoded = DecodeAES(cipher, encoded)
-	return str(decoded)
-"""
