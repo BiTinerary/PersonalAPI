@@ -18,6 +18,7 @@ try:
 	eMail = w.readline()
 	endUserNumba = w.readline()
 	aPIKey = w.readline()
+	herNumba = w.readline()
 
 finally:
 	w.close()
@@ -181,6 +182,7 @@ while True:
 		print "IPMAN SMS Sent"
 	elif len(Color) == 1:
 		message = str(colorOfTheDay())
+		#voice.send_sms(herNumba, message)
 		voice.send_sms(endUserNumba, message)
 		markAsRead()
 		deleteReadMessages()
