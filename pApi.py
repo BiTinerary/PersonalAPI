@@ -123,16 +123,19 @@ def getAddress():
 				simpleFormatActualIP = str(actualIP).rstrip('\n')
 
 				if simpleFormatFileIP != simpleFormatActualIP:
-						print(simpleFormatFileIP + ' != ' + simpleFormatActualIP)
-						messagez = "WRONG IPMAN!\nOld: %s\nNew: %s" % (simpleFormatFileIP, simpleFormatActualIP)
-						voice.send_sms(endUserNumba, messagez)
+					print(simpleFormatFileIP + ' != ' + simpleFormatActualIP)
+					messagez = "WRONG IPMAN!\nOld: %s\nNew: %s" % (simpleFormatFileIP, simpleFormatActualIP)
+					f.close()
+					with open('curlOutput.txt', 'r+') as f:
+						f.write(simpleFormatActualIP)
 						f.close()
-						#return simpleFormatActualIP
+					return messagez
+					#return simpleFormatActualIP
 				else:
 					print(simpleFormatFileIP + ' == ' + simpleFormatActualIP)
 					messagez = 'CORRECT IPMAN!\nOld: %s\nNew: %s' % (simpleFormatFileIP, simpleFormatActualIP)
-					voice.send_sms(endUserNumba, messagez)
 					f.close()
+					return messagez
 
 while True:
 
