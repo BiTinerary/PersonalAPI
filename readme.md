@@ -1,4 +1,4 @@
-## pAPI: Ported from deprecated [pyGoogleVoice](https://pypi.python.org/pypi/pygooglevoice/0.5) library to [Gmail for Ruby](https://github.com/gmailgem/gmail)  
+## pAPI: Porting from deprecated [pyGoogleVoice](https://pypi.python.org/pypi/pygooglevoice/0.5) library to [Gmail for Ruby](https://github.com/gmailgem/gmail)  
 
 ## Overview
 Run while loop on Orangepi or equivalent SBC. Scan inbox of email. `if unread.message.exists? from: myphonenumber@mymetropcs.com` trigger respective linux command.  
