@@ -10,10 +10,10 @@ Basically a minimal IOT interface. That is as secure as your email and/or LAN. T
 
 **Some ideas:**  
 If content of message contains 'ipman', then `curl icanhazip.com` and send SMS with response.  
-If content == 'weather'` send weatherunderground api response.  
+If content == 'weather' send weatherunderground api response.  
 If command detected from stranger number, send response after authentication on personal device.  
-If command detected == `blackout` run mass shutdown/kill command on devices.  
-If command == `find regexForPhoneNumber`, respons with Pipl.com api results.  
+If command detected == `blackout` run mass shutdown/kill command on device?  
+If command == `find regexForPhoneNumber`, response with Pipl.com api results.  
   
 ## Requirements
 * [Gmail For Ruby](https://github.com/gmailgem/gmail)  
