@@ -2,10 +2,14 @@
 
 ## Overview
 Run while loop on Orangepi or equivalent SBC. Scan inbox of email. `if unread.message.exists? from: myphonenumber@mymetropcs.com` trigger respective linux command.  
-Mark unread.message as read. Delete message.
+Mark unread.message as read. Delete message. In other words, I send SMS to personal email. SBC detects it and fires off local bash/ruby/python script.  
+Some of which do local things like shutdown any/all/specific computers. Returns API call, the world is your oyster.
+
+## Why?
+Basically a minimal IOT interface. That is as secure as your email and/or LAN. Triggered from what is essentially a text/SMS based CLI.
 
 **Some ideas:**  
-I send SMS to personal email. SBC detects it. `If` content of message contains 'ipman', then `curl icanhazip.com` and send SMS with response.  
+If content of message contains 'ipman', then `curl icanhazip.com` and send SMS with response.  
 If content == 'weather'` send weatherunderground api response.  
 If command detected from stranger number, send response after authentication on personal device.  
 If command detected == `blackout` run mass shutdown/kill command on devices.  
@@ -22,5 +26,10 @@ If command == `find regexForPhoneNumber`, respons with Pipl.com api results.
 ## Installation  
 `gem install gmail`  
 `git clone https://github.com/BiTinerary/PersonalAPI`
+
+## TODO
+* omniauth integration
+* 'unread' message parsing
+* main loop: `for message.each do |search keyword| end if keyword == 'trigger' %x(echo 'trigger on host machine')`
 
 
