@@ -12,11 +12,13 @@ Basically a minimal IOT interface.
 Which is as secure as your email login and/or LAN credentials. Triggered from what is essentially a text/SMS based CLI.
 
 **Some ideas:**  
-If content of message contains 'ipman', then `curl icanhazip.com` and send SMS with response.  
-If content == 'weather' send weatherunderground api response.  
-If command detected from stranger number, send response after authentication on personal device.  
-If command detected == `blackout` run mass shutdown/kill command on device?  
-If command == `find regexForPhoneNumber`, response with Pipl.com api results.  
+'ipman' == then `curl icanhazip.com` and send SMS with response.  
+`creditScore` == run webscrape script to get credit Score, current alerts, last opened account, identity scurity status, etc...  
+`laidOff` == send out resume to specified email addresses.
+'weather' == send weatherunderground api response.  
+`blackout` == run mass shutdown/kill command on device/s?  
+`find regexForPhoneNumber` == response with Pipl.com api results.  
+If command detected but from stranger number, send response after authentication on personal device?  
   
 ## Requirements
 * [Gmail For Ruby](https://github.com/gmailgem/gmail)  
