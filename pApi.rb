@@ -1,6 +1,6 @@
 require 'gmail'
-
 credentials = []
+
 File.readlines('./loginCreds.txt').each do |line|
     credentials << line
 end
@@ -8,7 +8,6 @@ end
 username = credentials[0]
 password = credentials[1]
 phoneNumber = credentials[2]
-
 bodyText = 'what to say'
 withKeyword = 'Jfjcbbd'
 
