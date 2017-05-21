@@ -33,6 +33,6 @@ If command == `find regexForPhoneNumber`, response with Pipl.com api results.
 ## TODO
 * omniauth integration
 * 'unread' message parsing
-* main loop: `for message.each do |search keyword| end if keyword == 'trigger' %x(echo "trigger on host machine") end`
+* main loop: `for message.each do |search keyword| end if keyword == 'shutdown' %x(echo "shutdown now") end`
 
 
