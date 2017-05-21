@@ -15,7 +15,7 @@ Which is as secure as your email login and/or LAN credentials. Triggered from wh
 `ipman` == then `curl icanhazip.com` and send SMS with response.  
 `creditScore` == run webscrape script to get credit Score, current alerts, last opened account, identity scurity status, etc...  
 `laidOff` == send out resume to specified email addresses.  
-`weather 55108` == wunderground API response for zipcode
+`weather 55108` == wunderground API response for zipcode  
 `blackout` == run mass shutdown/kill command on device/s?  
 `find regexForPhoneNumber` == response with Pipl.com api results.  
 
