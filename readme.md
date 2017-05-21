@@ -2,7 +2,9 @@
 
 ## Overview
 Run while loop on Orangepi or equivalent SBC. Scan inbox of email. `if unread.message.exists? from: myphonenumber@mymetropcs.com` trigger respective linux command.  
+
 Mark unread.message as read. Delete message. In other words, I send SMS to personal email. SBC detects it and fires off local bash/ruby/python script.  
+
 Some of which do local things like shutdown any/all/specific computers. Returns API call, the world is your oyster.
 
 ## Why?
@@ -31,6 +33,6 @@ If command == `find regexForPhoneNumber`, response with Pipl.com api results.
 ## TODO
 * omniauth integration
 * 'unread' message parsing
-* main loop: `for message.each do |search keyword| end if keyword == 'trigger' %x(echo 'trigger on host machine')`
+* main loop: `for message.each do |search keyword| end if keyword == 'trigger' %x(echo "trigger on host machine") end`
 
 
