@@ -6,7 +6,8 @@ Mark unread.message as read. Delete message. In other words, I send SMS to perso
 Some of which do local things like shutdown any/all/specific computers. Returns API call, the world is your oyster.
 
 ## Why?
-Basically a minimal IOT interface. That is as secure as your email and/or LAN. Triggered from what is essentially a text/SMS based CLI.
+Basically a minimal IOT interface.
+Which is as secure as your email login and/or LAN credentials. Triggered from what is essentially a text/SMS based CLI.
 
 **Some ideas:**  
 If content of message contains 'ipman', then `curl icanhazip.com` and send SMS with response.  
