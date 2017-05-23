@@ -34,7 +34,7 @@ If command detected but from stranger number, send response after authentication
 
 ## TODO
 * Don't login/logout for each key/value pair to avoid potential IMAP restrictions? Which might result from too many logins in X amount of time.
-  *Login, search for all key/values, then logout and sleep. Or better yet, don't logout at all.
+ * Login, search for all key/values, then logout and sleep. Or better yet, don't logout at all.
 * omniauth integration
 * 'unread' message parsing
 * main loop: `for message.each do |search keyword| end if keyword == 'shutdown' %x(shutdown now) end`
