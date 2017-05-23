@@ -47,10 +47,6 @@ end
 
 # delete unread message from inbox, which contains specific keyword/s.
 # !!! Dangerous, as this will delete unread emails with the keyword anywhere in the message !!!
-# This is something that needs to be fixed, else keywords/trigger word defined in later array...
-# must be weird, totally random phrases to avoid deleting important emails. (this would be not ideal technique)
-# Otherwise, use disposable email address (that i use for spam)
-# Otherwise flag to something else and move to **not** inbox.
 
 # ie: I text my own email, this scans for keywords/commands and then triggers local commands, returns API calls or w/e
 # then deletes the email containing the keyword, as to not falsely trigger later on.
