@@ -10,6 +10,8 @@ Some of which do local things like shutdown any/all/specific computers. Returns 
 ## Why?
 A minimal IOT interface which is as secure as your email login and/or LAN credentials. Triggered from what is essentially a text/SMS based CLI which doesn't require mobile internet. Further utilizing bandwidth that is paid for but might not normally be used.
 
+A universal computer remote. Simultaneously repairing 10+ computers like I used to? Don't install all virus removal software, anti virus, cleaner programs one by one on each machine. Just to uninstall some later. Issue one command, run on all computers. (needs to be made Ruby to Exe)
+
 **Some ideas:**  
 `ipman` == then `curl icanhazip.com` and send SMS with response.  
 `creditScore` == run webscrape script to get credit Score, current alerts, last opened account, identity scurity status, etc...  
