@@ -7,17 +7,17 @@ keyword = 'ipman'
 # Get credentials from each line of file
 # Port this lazy/bad storing of credentials to YAML/Token/API, etc...
 def getCredentials(filename)
-	credentials = []
-	File.readlines(filename).each do |line| # append each line to array
-	    credentials << line
-	end
-	username, password, phoneNumber = credentials # assign variable to each index
-	return [username, password, phoneNumber] # return new array
+    credentials = []
+    File.readlines(filename).each do |line| # append each line to array
+        credentials << line
+    end
+    username, password, phoneNumber = credentials # assign variable to each index
+    return [username, password, phoneNumber] # return new array
 end
 
 # Login using previous credetials. Port this to YAML/Token/OAUTH, etc...
 def loginUsing(filename) # login using credentials pulled from credentials file
-	arrayCreds = getCredentials(filename)
+    arrayCreds = getCredentials(filename)
     gmail = Gmail.connect(arrayCreds[0], arrayCreds[1])
     return gmail
 end
@@ -55,7 +55,7 @@ end
 # ie: I text my own email, this scans for keywords/commands and then triggers local commands, returns API calls or w/e
 # then deletes the email containing the keyword, as to not falsely trigger later on.
 def deleteMessage(keyword, filename) 
-	phoneNumber = getCredentials(filename)[2]
+    phoneNumber = getCredentials(filename)[2]
     gmail = loginUsing(filename) # seperate login session.
         gmail.inbox.emails(gm: "from: #{phoneNumber} in:read '#{keyword}'").each do |email| # search 'inbox' for every 'unread' keyword ## Probably doesn't need to search for every instance?
             puts email.body
