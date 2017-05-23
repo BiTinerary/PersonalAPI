@@ -1,2 +1,2 @@
-ipman, echo Hello World
+ipman, curl icanhazip.com
 tubular, echo dude
