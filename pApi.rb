@@ -1,21 +1,34 @@
 require 'gmail'
-credentials = []
 
-File.readlines('./loginCreds.txt').each do |line|
-    credentials << line
+keyValuePairs = './keyValuePairs.txt'
+filename = './loginCreds.txt'
+
+# Get credentials from each line of file
+# Port this lazy/bad storing of credentials to YAML/Token/API, etc...
+def getCredentials(filename)
+    credentials = []
+    File.readlines(filename).each do |line| # append each line to array
+        credentials << line
+    end
+    username, password, phoneNumber = credentials # assign variable to each index
+    return [username, password, phoneNumber] # return new array
 end
 
-username = credentials[0]
-password = credentials[1]
-phoneNumber = credentials[2]
-bodyText = 'what to say'
-withKeyword = 'Jfjcbbd'
+# Login using previous credetials. Port this to YAML/Token/OAUTH, etc...
+def loginUsing(filename) # login using credentials pulled from credentials file
+    arrayCreds = getCredentials(filename)
+    gmail = Gmail.connect(arrayCreds[0], arrayCreds[1])
+    return gmail
+end
 
-def sendEmail(bodyText, phoneNumber, username, password)
-    Gmail.connect(username, password) do |gmail|
-  
+# Send email.
+# Recipient = email address or email address of phone number.
+# Body text = content of message, can uncomment lines below to attach local files, provide subject, etc...
+# Filename = pass credentials as argument to previous functions.
+def sendEmail(recipient, bodyText, filename)
+    gmail = loginUsing(filename) # assign variable to login session/connection passed in previous function.
         gmail.deliver do
-            to phoneNumber
+            to recipient
             #subject messageSubject
 
             text_part do
@@ -28,22 +41,41 @@ def sendEmail(bodyText, phoneNumber, username, password)
             end
             #add_file '\path\to\image.png'
         end
-    end
-    puts 'Email Sent! Message: #{bodyText} To: #{phoneNumber}'
+    puts "Email Sent!\nMessage: '#{bodyText}'\nTo: #{recipient}" #Debug, did message get sent? and what?
 end
 
-sendEmail(bodyText, phoneNumber, username, password)
+# delete unread message from inbox, which contains specific keyword/s.
+# !!! Dangerous, as this will delete unread emails with the keyword anywhere in the message !!!
+# ie: I text my own email, this scans for keywords/commands and then triggers local commands, returns API calls or w/e
+# then deletes the email containing the keyword, as to not falsely trigger later on.
+def deleteMessage(keyword, command, filename) 
+    phoneNumber = getCredentials(filename)[2]
 
-def deleteMessage(keyword, username, password)
-    
-    Gmail.connect(username, password) do |gmail|
-        gmail.inbox.emails(:unread, gm: keyword).each do |email| 
-            #puts email.body
-            email.read!
-            email.delete!
+    gmail = loginUsing(filename) # seperate login session.
+        gmail.inbox.emails(gm: "from: #{phoneNumber} in:unread '#{keyword}'").each do |email| # search 'inbox' for every 'unread' keyword ## Probably doesn't need to search for every instance?
+            puts email.body
+
+            if email.body != nil
+                #email.read! #then mark as read ##this can probably be omitted
+                email.delete! #then delete
+                #puts "#{command}"
+                command = %x(#{command}).chomp
+                sendEmail(phoneNumber, "#{command}", filename)
+                puts "Found Keyword: #{keyword}"
+                puts "Issuing command: #{command}"
+                return true
+            end
         end
-    end
-    puts "deleted unread with keyword: #{keyword}"
+    #puts "Deleted unread emails with keyword: #{keyword}"
+    puts "keyword not found!"
+    return false
 end
 
-deleteMessage(withKeyword, username, password)
+def searchAndTrigger(keyValuePairs, filename)
+    x = Hash[*File.read(keyValuePairs).split(/, |\n/)]
+    x.each do |key, value|
+    	deleteMessage(key, value, filename)
+    end
+end
+
+searchAndTrigger(keyValuePairs, filename)
