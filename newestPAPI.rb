@@ -55,20 +55,16 @@ end
 # ie: I text my own email, this scans for keywords/commands and then triggers local commands, returns API calls or w/e
 # then deletes the email containing the keyword, as to not falsely trigger later on.
 def deleteMessage(keyword, filename) 
+	phoneNumber = getCredentials(filename)[2]
     gmail = loginUsing(filename) # seperate login session.
-        gmail.inbox.emails(:unread, gm: 'from:#{getCredentials[2]} #{keyword}).each do |email| # search 'inbox' for every 'unread' keyword ## Probably doesn't need to search for every instance?
+        gmail.inbox.emails(gm: "from: #{phoneNumber} in:read '#{keyword}'").each do |email| # search 'inbox' for every 'unread' keyword ## Probably doesn't need to search for every instance?
             puts email.body
 
             if email.body != nil
-                email.read! #then mark as read ##this can probably be omitted
-                #email.delete! #then delete
+                #email.read! #then mark as read ##this can probably be omitted
+                email.delete! #then delete
                 return true
             end
-            #inbox = gmail.inbox
-            #email.body.parts.each do |part|
-            #    puts part.decoded
-            #end
-
         end
     #puts "Deleted unread emails with keyword: #{keyword}"
     return false
@@ -78,11 +74,3 @@ end
 #    if deleteMessage == true:
 print deleteMessage(keyword, filename)
 #sendEmail(getCredentials(filename)[2], bodyText, filename)
-
-################
-#Security Notes#
-################
-
-#anyone can email you these key words, do not hard code. Store in dictionary, off script.
-#limit triggering to sender address/es. Default personal, allow others/friends? Ask for permission, then add/write to 3rd txt file?
-#Do not do crazy things, ie: dead man switch, nuke HDD's computers, etc... or do? Then see how long it takes for the world to kill machine?
