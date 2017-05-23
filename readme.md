@@ -36,5 +36,8 @@ If command detected but from stranger number, send response after authentication
 * omniauth integration
 * 'unread' message parsing
 * main loop: `for message.each do |search keyword| end if keyword == 'shutdown' %x(shutdown now) end`
+* Needs final while loop
+* Test stdout vs other non echo command.
+* Get familiar with classes, then make 'filename' its own class. So it's not passed to so many functions.
 
 
