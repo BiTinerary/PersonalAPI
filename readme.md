@@ -33,13 +33,13 @@ If command detected but from stranger number, send response after authentication
 `git clone https://github.com/BiTinerary/PersonalAPI`
 
 ## TODO
-* Don't login/logout for each key/value pair to avoid potential IMAP restrictions? Which might result from too many logins in X amount of time.
-  * Login, search for all key/values, then logout and sleep. Or better yet, don't logout at all.
+* <strike>Don't login/logout for each key/value pair to avoid potential IMAP restrictions? Which might result from too many logins in X amount of time.
+  * Login, search for all key/values, then logout and sleep. Or better yet, don't logout at all.</strike>
 * omniauth integration
-* 'unread' message parsing
-* main loop: `for message.each do |search keyword| end if keyword == 'shutdown' %x(shutdown now) end`
-* Needs final while loop
-* Test stdout vs other non echo command.
-* Get familiar with classes, then make 'filename' its own class. So it's not passed to so many functions.
+* <strike>'unread' message parsing</strike>
+* <strike>main loop: `for message.each do |search keyword| end if keyword == 'shutdown' %x(shutdown now) end`</strike>
+* <strike>Needs final while loop</strike>
+* Test <strike>stdout vs other</strike> non echo command. Works, but needs more commands to be tested.
+* <strike> House keeping: reorganize gmail session and login creds so it's not passed to so many other functions.</strike>
 
 
