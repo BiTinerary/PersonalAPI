@@ -56,7 +56,7 @@ end
 # then deletes the email containing the keyword, as to not falsely trigger later on.
 def deleteMessage(keyword, filename) 
     gmail = loginUsing(filename) # seperate login session.
-        gmail.inbox.emails(:unread, gm: keyword).each do |email| # search 'inbox' for every 'unread' keyword ## Probably doesn't need to search for every instance?
+        gmail.inbox.emails(:unread, gm: 'from:#{getCredentials[2]} #{keyword}).each do |email| # search 'inbox' for every 'unread' keyword ## Probably doesn't need to search for every instance?
             puts email.body
 
             if email.body != nil
