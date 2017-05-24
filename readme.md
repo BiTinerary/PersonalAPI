@@ -38,7 +38,7 @@ If command detected but from stranger number, send response after authentication
 `gem install gmail`  
 `git clone https://github.com/BiTinerary/PersonalAPI`  
 `cd PersonalAPI`  
-`ruby pAPI.rb | pAPI.exe`  
+`ruby pAPI.rb | pApiFinalized.exe`  
 
 ## TODO
 * <strike>Don't login/logout for each key/value pair to avoid potential IMAP restrictions? Which might result from too many logins in X amount of time.
