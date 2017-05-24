@@ -1,4 +1,4 @@
-## What do I use it for?
+## What can it be used for?
 A remote shell that requires internet connection only one way. Ask the internet questions (Alexa, Google, etc... API) with only a text message. ie: places with access to mobile phones but not internet.
 
 A universal computer remote. Are you simultaneously repairing 10+ computers like I used to? Don't install all virus removal software, anti virus, cleaner programs one by one on each machine. Just to uninstall some later. Issue one command from mobile phone and run it on all computers.
