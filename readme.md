@@ -41,8 +41,8 @@ If command detected but from stranger number, send response after authentication
 ## Executing  
 `gem install gmail`  
 `git clone https://github.com/BiTinerary/PersonalAPI`  
-`cd PersonalAPI`
-`ruby pAPI.rb`
+`cd PersonalAPI`  
+`ruby pAPI.rb`  
 
 ### or on Windows..
 `pApi.exe`  
