@@ -8,7 +8,8 @@ ie: Computer repair, virus removal, anti virus installation, etc...
 
 **Bandwidth efficiency**: Use what's already being paid for but might not normally be accessible. Use home internet to get bits of data rather than soaking up mobile data. Use in places with access to mobile phones but not internet?  
 
-**Cloud computing concept**: A minimalist interface to a device that is capable of exponentially more computing power. ie: send text/picture/attachment from Nokia 3310 but return **only** the results of a machine learning computer.  
+**Cloud computing concept**: A minimalist interface to a device that is capable of exponentially more computing power.  
+ie: send text/picture/attachment from Nokia 3310 but return **only** the results of a machine learning computer.  
   
 ## Overview
 Run while loop on Orangepi or equivalent SBC. Scan inbox of email.  
@@ -34,16 +35,17 @@ If command detected but from stranger number, send response after authentication
 	* Visit their repo for setting up Google Developer API credentials, ID's, etc... for your gmail account.  
 	* As well as example code for retrieving oAuth2 tokens.  
 * [Rails](http://railsinstaller.org/en): Dependency of `omniauth-google-oauth2`  
+* **loginCreds.txt** and **keyValuePairs.txt** files in same directory as script.
+    * Make sure encoding is correct after you put in your specific credentials/changes.
   
-## Installation  
+## Executing  
 `gem install gmail`  
 `git clone https://github.com/BiTinerary/PersonalAPI`  
-`cd PersonalAPI`  
+`cd PersonalAPI`
 `ruby pAPI.rb`
 
 ### or on Windows..
-`pApiFinalized.exe`  
-You may need to recreate input files (**loginCreds.txt**, **keyValuePairs.txt**) since github doesn't preserve return carriage `\r\n` in these files. However it was made for, tested, and debugged on a Windows systems. So make sure sure those return characters are included, even if they're invisible. 
+`pApi.exe`  
 
 ## TODO
 * <strike>Don't login/logout for each key/value pair to avoid potential IMAP restrictions? Which might result from too many logins in X amount of time.
