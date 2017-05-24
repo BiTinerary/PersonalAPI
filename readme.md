@@ -1,18 +1,17 @@
 ## What can it be used for?
-A universal computer remote. Are you simultaneously repairing 10+ computers like I used to? Don't install all virus removal software, anti virus, cleaner programs one by one on each machine. Just to uninstall some later. Issue one command from mobile phone and run it on all computers.
+The concept is very similar to text based banking, in practice. However, can be customized to perform many other services. Such as...
 
-A minimal IOT interface which is as secure as your email login and/or LAN credentials. Triggered from what is essentially a text/SMS based CLI which doesn't require mobile internet. Further utilizing bandwidth that is paid for, but might not normally be used.
-
-A remote shell that requires internet connection only one way. Ask the internet questions (Alexa, Google, etc... API) with only a text message. ie: places with access to mobile phones but not internet.
-
-A cloud computing concept. What's the point if you have to sign up, register, tech guru your way into a cloud computer? The idea is to provide a minimalist interface to a super device that is capable of exponentially more computing power. ie: send text/picture/attachment from Nokia 3310  but return **only** the results of a 'machine learning' computer/algorithm.
-
+Mass Computer Automation: Issue one command that triggers script/s on several computers simultaneously. ie: Computer repair, virus removal, anti virus installation, etc...
+IOT: A minimal IOT trigger which is as secure as your email login and/or LAN credentials. Essentially, a text based CLI (aliases) which doesn't require internet on the go. Shut down home computer, Wake on lan, activate servo or solenoid.  
+Bandwidth efficiency: Use what's already being paid for but might not normally be accessible. Use home internet to get bits of data rather than soaking up mobile data. Use in places with access to mobile phones but not internet?  
+Cloud computing concept. A minimalist interface to a device that is capable of exponentially more computing power. ie: send text/picture/attachment from Nokia 3310 but return **only** the results of a machine learning computer.  
+  
 ## Overview
 Run while loop on Orangepi or equivalent SBC. Scan inbox of email.  
 `if unread.message.exists? from: myphonenumber@mymetropcs.com` trigger respective linux command. Delete message.  
   
-In other words, I send SMS to personal email. SBC detects it and fires off local bash/ruby/python script.
-Some of which do local things like shutdown any/all/specific computers. Returns API call, the world is your oyster.
+In other words, I send SMS to personal email. SBC detects it and fires off local bash/ruby/python script.  
+Some of which do local things like shutdown any/all/specific computers running the script. Returns API call, the world is your oyster and Bobs your uncle.  
 
 **Some ideas:**  
 `ipman` == then `curl icanhazip.com` and send SMS with response.  
