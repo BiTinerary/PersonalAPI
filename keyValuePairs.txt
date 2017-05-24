@@ -1,4 +1,4 @@
-ipman, curl icanhazip.com\n
-killALL, shutdown -s -t 0\n
-rebootALL, restart -r -t 0\n
-tubular, echo dude\n
+ipman, curl icanhazip.com
+killALL, shutdown -s -t 0
+rebootALL, restart -r -t 0
+tubular, echo dude
