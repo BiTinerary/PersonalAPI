@@ -1,7 +1,8 @@
 ## What can it be used for?
 The concept is very similar to text based banking, in practice. However, can be customized to perform other services. Such as...
 
-**Mass Computer Automation**: Issue one command that triggers script/s on several computers simultaneously. ie: Computer repair, virus removal, anti virus installation, etc...  
+**Mass Computer Automation**: Issue one command that triggers script/s on several computers simultaneously.  
+ie: Computer repair, virus removal, anti virus installation, etc...  
 
 **IOT Applications**: A minimal IOT trigger which is as secure as your email login and/or LAN credentials. Essentially, a text based CLI (aliases) which doesn't require internet on the go. Shut down home computer, Wake on lan, activate servo or solenoid.  
 
