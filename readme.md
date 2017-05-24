@@ -10,7 +10,8 @@ A minimal IOT interface which is as secure as your email login and/or LAN creden
 A cloud computing concept. What's the point if you have to sign up, register, tech guru your way into a cloud computer? The idea is to provide a minimalist interface to a super device that is capable of exponentially more computing power. ie: send text from Nokia 3310 (original) but return **only** the results of a 'machine learning' computer/algorithm.
 
 ## Overview
-Run while loop on Orangepi or equivalent SBC. Scan inbox of email. `if unread.message.exists? from: myphonenumber@mymetropcs.com` trigger respective linux command.  
+Run while loop on Orangepi or equivalent SBC. Scan inbox of email.  
+`if unread.message.exists? from: myphonenumber@mymetropcs.com` trigger respective linux command.  
 
 Mark unread.message as read. Delete message. In other words, I send SMS to personal email. SBC detects it and fires off local bash/ruby/python script.  
 
