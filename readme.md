@@ -1,4 +1,4 @@
-## pAPI: Porting from deprecated [pyGoogleVoice](https://pypi.python.org/pypi/pygooglevoice/0.5) library to [Gmail for Ruby](https://github.com/gmailgem/gmail)  
+## pAPI: Ported from deprecated [pyGoogleVoice](https://pypi.python.org/pypi/pygooglevoice/0.5) library to [Gmail for Ruby](https://github.com/gmailgem/gmail)  
 
 ## Why?
 A remote shell that requires internet connection only one way. Ask the internet questions (Alexa, Google, etc... API) with only a text message. ie: places with access to mobile phones but not internet.
