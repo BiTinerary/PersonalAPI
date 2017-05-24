@@ -52,12 +52,11 @@ def deleteMessage(keyword, command, gmailSesh, recipient)
                 return true # move on to next keyword
             end
         end
-    puts "keyword not found!"
+    puts "Keyword not found!"
     return false
 end
 
-def searchAndTrigger(keyValuePairs, loginCreds) #single login session!
-	gmailSesh = loginUsing(loginCreds) # Open single session, then search for all keywords/triggers.
+def searchAndTrigger(keyValuePairs, loginCreds, gmailSesh) #single login session!
  	recipient = getCredentials(loginCreds)[2]
 
     x = Hash[*File.read(keyValuePairs).split(/, |\n/)]
@@ -66,8 +65,10 @@ def searchAndTrigger(keyValuePairs, loginCreds) #single login session!
     end
 end
 
+
+gmailSesh = loginUsing(loginCreds) # Open single session, then search for all keywords/triggers.
 while true
-	searchAndTrigger(keyValuePairs, loginCreds)
-	puts "\nSleeping...".chomp
+	searchAndTrigger(keyValuePairs, loginCreds, gmailSesh)
+	puts "Sleeping...\n\n"
 	sleep 5
 end
