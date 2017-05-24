@@ -40,7 +40,7 @@ If command detected but from stranger number, send response after authentication
 `cd PersonalAPI`  
 `ruby pAPI.rb`
 
-or on Windows..
+### or on Windows..
 `pApiFinalized.exe`
 You may need to recreate input files (loginCreds.txt, keyValuePairs.txt) since github doesn't preserve return carriage `\r\n` in these files. However it was made for, tested, and debugged on a Windows systems. So make sure sure those return characters are included, even if they're invisible. 
 
