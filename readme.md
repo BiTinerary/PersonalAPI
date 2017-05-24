@@ -9,10 +9,9 @@ A cloud computing concept. What's the point if you have to sign up, register, te
 
 ## Overview
 Run while loop on Orangepi or equivalent SBC. Scan inbox of email.  
-`if unread.message.exists? from: myphonenumber@mymetropcs.com` trigger respective linux command.  
-
-Mark unread.message as read. Delete message. In other words, I send SMS to personal email. SBC detects it and fires off local bash/ruby/python script.  
-
+`if unread.message.exists? from: myphonenumber@mymetropcs.com` trigger respective linux command. Delete message.  
+  
+In other words, I send SMS to personal email. SBC detects it and fires off local bash/ruby/python script.
 Some of which do local things like shutdown any/all/specific computers. Returns API call, the world is your oyster.
 
 **Some ideas:**  
