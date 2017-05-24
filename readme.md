@@ -3,7 +3,7 @@
 ## Why?
 A remote shell that requires internet connection only one way. Ask the internet questions (Alexa, Google, etc... API) with only a text message. ie: places with access to mobile phones but not internet.
 
-A universal computer remote. Simultaneously repairing 10+ computers like I used to? Don't install all virus removal software, anti virus, cleaner programs one by one on each machine. Just to uninstall some later. Issue one command, run on all computers.
+A universal computer remote. Are you simultaneously repairing 10+ computers like I used to? Don't install all virus removal software, anti virus, cleaner programs one by one on each machine. Just to uninstall some later. Issue one command, run on all computers.
 
 A minimal IOT interface which is as secure as your email login and/or LAN credentials. Triggered from what is essentially a text/SMS based CLI which doesn't require mobile internet. Further utilizing bandwidth that is paid for, but might not normally be used.
 
