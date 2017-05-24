@@ -1,10 +1,13 @@
 ## What can it be used for?
 The concept is very similar to text based banking, in practice. However, can be customized to perform many other services. Such as...
 
-Mass Computer Automation: Issue one command that triggers script/s on several computers simultaneously. ie: Computer repair, virus removal, anti virus installation, etc...
-IOT: A minimal IOT trigger which is as secure as your email login and/or LAN credentials. Essentially, a text based CLI (aliases) which doesn't require internet on the go. Shut down home computer, Wake on lan, activate servo or solenoid.  
-Bandwidth efficiency: Use what's already being paid for but might not normally be accessible. Use home internet to get bits of data rather than soaking up mobile data. Use in places with access to mobile phones but not internet?  
-Cloud computing concept. A minimalist interface to a device that is capable of exponentially more computing power. ie: send text/picture/attachment from Nokia 3310 but return **only** the results of a machine learning computer.  
+**Mass Computer Automation**: Issue one command that triggers script/s on several computers simultaneously. ie: Computer repair, virus removal, anti virus installation, etc...  
+
+**IOT Applications**: A minimal IOT trigger which is as secure as your email login and/or LAN credentials. Essentially, a text based CLI (aliases) which doesn't require internet on the go. Shut down home computer, Wake on lan, activate servo or solenoid.  
+
+**Bandwidth efficiency**: Use what's already being paid for but might not normally be accessible. Use home internet to get bits of data rather than soaking up mobile data. Use in places with access to mobile phones but not internet?  
+
+**Cloud computing concept**: A minimalist interface to a device that is capable of exponentially more computing power. ie: send text/picture/attachment from Nokia 3310 but return **only** the results of a machine learning computer.  
   
 ## Overview
 Run while loop on Orangepi or equivalent SBC. Scan inbox of email.  
@@ -13,7 +16,7 @@ Run while loop on Orangepi or equivalent SBC. Scan inbox of email.
 In other words, I send SMS to personal email. SBC detects it and fires off local bash/ruby/python script.  
 Some of which do local things like shutdown any/all/specific computers running the script. Returns API call, the world is your oyster and Bobs your uncle.  
 
-**Some ideas:**  
+**Some more ideas:**  
 `ipman` == then `curl icanhazip.com` and send SMS with response.  
 `creditScore` == run webscrape script to get credit Score, current alerts, last opened account, identity scurity status, etc...  
 `laidOff` == send out resume to specified email addresses.  
