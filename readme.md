@@ -1,16 +1,20 @@
 ## pAPI: Porting from deprecated [pyGoogleVoice](https://pypi.python.org/pypi/pygooglevoice/0.5) library to [Gmail for Ruby](https://github.com/gmailgem/gmail)  
 
+## Why?
+A remote shell that requires internet connection only one way. Ask the internet questions (Alexa, Google, etc... API) with only a text message. ie: places with access to mobile phones but not internet.
+
+A universal computer remote. Simultaneously repairing 10+ computers like I used to? Don't install all virus removal software, anti virus, cleaner programs one by one on each machine. Just to uninstall some later. Issue one command, run on all computers.
+
+A minimal IOT interface which is as secure as your email login and/or LAN credentials. Triggered from what is essentially a text/SMS based CLI which doesn't require mobile internet. Further utilizing bandwidth that is paid for, but might not normally be used.
+
+A cloud computing concept. What's the point if you have to sign up, register, tech guru your way into a cloud computer? The idea is to provide a minimalist interface to a super device that is capable of exponentially more computing power. ie: send text from Nokia 3310 (original) but return **only** the results of a 'machine learning' computer/algorithm.
+
 ## Overview
 Run while loop on Orangepi or equivalent SBC. Scan inbox of email. `if unread.message.exists? from: myphonenumber@mymetropcs.com` trigger respective linux command.  
 
 Mark unread.message as read. Delete message. In other words, I send SMS to personal email. SBC detects it and fires off local bash/ruby/python script.  
 
 Some of which do local things like shutdown any/all/specific computers. Returns API call, the world is your oyster.
-
-## Why?
-A minimal IOT interface which is as secure as your email login and/or LAN credentials. Triggered from what is essentially a text/SMS based CLI which doesn't require mobile internet. Further utilizing bandwidth that is paid for but might not normally be used.
-
-A universal computer remote. Simultaneously repairing 10+ computers like I used to? Don't install all virus removal software, anti virus, cleaner programs one by one on each machine. Just to uninstall some later. Issue one command, run on all computers. (needs to be made Ruby to Exe)
 
 **Some ideas:**  
 `ipman` == then `curl icanhazip.com` and send SMS with response.  
