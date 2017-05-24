@@ -31,7 +31,8 @@ If command detected but from stranger number, send response after authentication
 ## Requirements
 * [Gmail For Ruby](https://github.com/gmailgem/gmail)  
 	* Visit their repo for extensive example code for sending, reading, labelling, searching, deleting, etc... emails.
-* [omniauth-google-oauth2](https://github.com/zquestz/omniauth-google-oauth2): To utilize oAuth2. Or not, if you wanna hardcode and store credentials in clear text.  
+* [omniauth-google-oauth2](https://github.com/zquestz/omniauth-google-oauth2): To utilize oAuth2. Or not, if you wanna be the kinda person who stores credentials in plain text.  
+        * Don't be that person
 	* Visit their repo for setting up Google Developer API credentials, ID's, etc... for your gmail account.  
 	* As well as example code for retrieving oAuth2 tokens.  
 * [Rails](http://railsinstaller.org/en): Dependency of `omniauth-google-oauth2`  
