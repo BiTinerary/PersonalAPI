@@ -1,11 +1,11 @@
 ## What can it be used for?
-A remote shell that requires internet connection only one way. Ask the internet questions (Alexa, Google, etc... API) with only a text message. ie: places with access to mobile phones but not internet.
-
 A universal computer remote. Are you simultaneously repairing 10+ computers like I used to? Don't install all virus removal software, anti virus, cleaner programs one by one on each machine. Just to uninstall some later. Issue one command from mobile phone and run it on all computers.
 
 A minimal IOT interface which is as secure as your email login and/or LAN credentials. Triggered from what is essentially a text/SMS based CLI which doesn't require mobile internet. Further utilizing bandwidth that is paid for, but might not normally be used.
 
-A cloud computing concept. What's the point if you have to sign up, register, tech guru your way into a cloud computer? The idea is to provide a minimalist interface to a super device that is capable of exponentially more computing power. ie: send text from Nokia 3310 (original) but return **only** the results of a 'machine learning' computer/algorithm.
+A remote shell that requires internet connection only one way. Ask the internet questions (Alexa, Google, etc... API) with only a text message. ie: places with access to mobile phones but not internet.
+
+A cloud computing concept. What's the point if you have to sign up, register, tech guru your way into a cloud computer? The idea is to provide a minimalist interface to a super device that is capable of exponentially more computing power. ie: send text/picture/attachment from Nokia 3310  but return **only** the results of a 'machine learning' computer/algorithm.
 
 ## Overview
 Run while loop on Orangepi or equivalent SBC. Scan inbox of email.  
