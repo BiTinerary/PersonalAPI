@@ -38,6 +38,7 @@ If command detected but from stranger number, send response after authentication
 * [Rails](http://railsinstaller.org/en): Dependency of `omniauth-google-oauth2`  
 * **loginCreds.txt** and **keyValuePairs.txt** files in same directory as script.
     * Make sure encoding is correct after you put in your specific credentials/changes.
+    * These text file **names** are the only variables hardcoded into the script/executable.
   
 ## Executing  
 `gem install gmail`  
