@@ -64,7 +64,7 @@ def searchAndTrigger(gmailSesh, keyValuePairs, loginCreds) #single login session
     end
 end
 
-x = 1
+x = 0
 gmailSesh = loginUsing(loginCreds) # Open single session, then search for all keywords/triggers.
 while true
     x += 1
