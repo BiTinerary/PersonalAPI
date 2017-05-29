@@ -39,13 +39,24 @@ def sendEmail(gmailSesh, recipient, bodyText)
 end
 
 # use passed arguments to continue session, find message and send respective response.
-def deleteMessage(gmailSesh, keyword, command, recipient) 
+def searchMessage(gmailSesh, keyword, command, recipient)
     gmailSesh.inbox.emails(gm: "from: #{recipient} in:unread '#{keyword}'").each do |email|
         #puts email.body
         if email.body != nil
-            email.delete! #then delete
+            if keyword == 'passArg()' # if passArg() keyword is found, run custom command.
+                email.message.attachments.each do |attachment| # turn every attachment into variable
+                    if attachment.filename.end_with? ".txt" # find only the attachment that is a text file.
+                        attachmentContent = attachment.read() # read contents (custom argument) from attachment
+                        puts attachmentContent #debug
+                        betweenParens = attachmentContent.scan(/\(([^\)]+)\)/).first # regex for passArg(echo Hallo World) == echo Hallo World
+                        print betweenParens[0] #debug
+                        command = betweenParens[0] # new command variable is just the contents between parens of passArg() email/txt sent.
+                    end
+                end
+            end
+            email.delete! # delete email so for loop doesn't repeate previous commands
             command = %x(#{command}).chomp
-            sendEmail(gmailSesh, recipient, "#{command}") #send command output to recipient using gmail session.
+            sendEmail(gmailSesh, recipient, "#{command}") # send command output to recipient using gmail session.
             puts "Found Keyword: #{keyword}" #debug
             puts "Command output: #{command}" #debug
             return true # move on to next keyword
@@ -55,12 +66,12 @@ def deleteMessage(gmailSesh, keyword, command, recipient)
     return false
 end
 
-def searchAndTrigger(gmailSesh, keyValuePairs, loginCreds) #single login session!
- 	recipient = getCredentials(loginCreds)[2]
+def searchAndTrigger(gmailSesh, keyValuePairs, loginCreds) # single login session!
+    recipient = getCredentials(loginCreds)[2]
 
     x = Hash[*File.read(keyValuePairs).split(/, |\n/)]
     x.each do |key, value|
-    	deleteMessage(gmailSesh, key, value, recipient) # pass necessary variables to discern what trigger to send/delete
+        searchMessage(gmailSesh, key, value, recipient) # pass necessary variables to discern what trigger to send/delete
     end
 end
 
@@ -69,9 +80,10 @@ gmailSesh = loginUsing(loginCreds) # Open single session, then search for all ke
 while true
     x += 1
     begin
-        searchAndTrigger(gmailSesh, keyValuePairs, loginCreds)
+    searchAndTrigger(gmailSesh, keyValuePairs, loginCreds)
+    puts "\n"
     rescue
-    	puts "Login Failed! Trying again..."
+        puts "Login Failed! Trying again..."
         gmailSesh = loginUsing(loginCreds) # Login session failed previously. Try again.
     ensure
         puts "Sleeping... Loop: #{x}\n\n"
