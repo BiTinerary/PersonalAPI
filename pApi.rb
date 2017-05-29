@@ -64,13 +64,17 @@ def searchAndTrigger(gmailSesh, keyValuePairs, loginCreds) #single login session
     end
 end
 
+x = 1
 gmailSesh = loginUsing(loginCreds) # Open single session, then search for all keywords/triggers.
 while true
-	begin
-	    searchAndTrigger(gmailSesh, keyValuePairs, loginCreds,)
+    x += 1
+    begin
+        searchAndTrigger(gmailSesh, keyValuePairs, loginCreds)
     rescue
-    	puts "Server Login Error! ... Is your credentials file correct?"
+    	puts "Login Failed! Trying again..."
+        gmailSesh = loginUsing(loginCreds) # Open single session, then search for all keywords/triggers.
+    ensure
+        puts "Sleeping... Loop: #{x}\n\n"
+        sleep 5
     end
-    puts "Sleeping...\n\n"
-    sleep 5
 end
