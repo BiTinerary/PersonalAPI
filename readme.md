@@ -24,6 +24,7 @@ It's search regex can be loose or very specific. For instance, "Have you seen th
 If these commands contain an output, send that information as notifications. This can be used for alerts or updates of online information, has the computer's internet been restored?, what is it's IP Address, return API like information. MAC Address, OS/System info, etc..? The world is your oyster and Bob's your uncle.  
   
 **Some more ideas:**  
+`someAndroidApp` == webscrape `appFileName.apk` and reply to phone with .apk ass attachment.
 `ipman` == then `curl icanhazip.com` and send SMS with response.  
 `creditScore` == run webscrape script to get credit Score, current alerts, last opened account, identity scurity status, etc...  
 `laidOff` == send out resume to specified email addresses.  
