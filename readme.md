@@ -50,10 +50,10 @@ Take arguments passed from email trigger. Parsing this email is tricky since MMS
 ## Executing
 
 ### On Linux based systems...  
-`gem install gmail`  
-`git clone https://github.com/BiTinerary/PersonalAPI`  
-`cd PersonalAPI`  
-`ruby pAPI.rb`  
+    gem install gmail  
+    git clone https://github.com/BiTinerary/PersonalAPI  
+    cd PersonalAPI  
+    ruby pAPI.rb  
 
 ### or on Windows..
 `pApi.exe`  
