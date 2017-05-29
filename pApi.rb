@@ -72,7 +72,7 @@ while true
         searchAndTrigger(gmailSesh, keyValuePairs, loginCreds)
     rescue
     	puts "Login Failed! Trying again..."
-        gmailSesh = loginUsing(loginCreds) # Open single session, then search for all keywords/triggers.
+        gmailSesh = loginUsing(loginCreds) # Login session failed previously. Try again.
     ensure
         puts "Sleeping... Loop: #{x}\n\n"
         sleep 5
