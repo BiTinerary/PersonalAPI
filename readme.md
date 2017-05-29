@@ -59,7 +59,7 @@ Take arguments passed from email trigger. Parsing this email is tricky since MMS
 `pApi.exe`  
 
 ## TODO
-<strike>* Add function that allows custom arguments/commands to be sent to host computer **not** listed in keyValuePairs.txt
+* <strike>Add function that allows custom arguments/commands to be sent to host computer **not** listed in keyValuePairs.txt
   * local computer commands that require variables. ie: ping www.google.com, whois ***8.8.8.8***</strike>
 * Whitelist other addresses? Allows wife/coworker address to utilize tool. Reply to address sent from, not only from txt file.
 * <strike>Don't login/logout for each key/value pair to avoid potential IMAP restrictions? Which might result from too many logins in X amount of time.
