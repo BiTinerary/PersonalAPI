@@ -15,7 +15,7 @@ ie: send text/picture/attachment from Nokia 3310 but return **only** the results
 Run while loop on Orangepi or equivalent SBC. Scan inbox of email for keyword delivered by specified email address.  
 `if unread.message.exists? from: myphonenumber@mymetropcs.com` trigger respective linux command. Delete message. Send alert to email address or phone number.   
 
-**keyValuePairs.txt** contains a dictionary which keys pertain to the keyword that the script looks for in your inbox. If keyword is found, the respective value is the literal command to be executed. If this command has an output, this will be sent as an alert message to the recipient defined on the last line of **loginCreds.txt**. This can be an email address or the email address of a phone.
+**keyValuePairs.txt** contains a dictionary which keys pertain to the keyword that the script looks for in your inbox. If keyword is found, the respective value is the literal command to be executed. If this command has an output, this will be sent as an alert message to the recipient defined on the last line of **loginCreds.txt**.  
 
 After the text files are read, **pAPI.rb** searches for the keywords provided. The search is done by the same GMail search function available from within the Web Browser GUI. Specifically `from: #{recipient} in:unread #{keyword}`. This disallows foreign emails from triggering commands and can also be scaled to include other Google search features like `has attachment`, `to:address@gmail.com`, date ranges and more.  
   
