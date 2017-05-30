@@ -37,9 +37,11 @@ If a email/SMS is sent with content "PassArg(***echo Hellow Orld***)" then the c
   
 * Script will be used with an unpublicised, obfuscated email address.
 * More obscure (not hardcoded [last arg in keyValuePairs?] customizeable) PassArg() variable.
-* Make shift dual authentication from inside received message. ie: Must end with special (changing) passcode defined in txt file.
+* Make shift dual authentication from inside received message.
+  * ie: Must end with special (changing) passcode defined in txt file.
 * White/blacklist certain commands, "Are you sure you want to issue #{command} on #{system}? Y or N?", etc..  
-* Custom scripting/sandboxing. Should variable arguments need to be passed, write a script that takes sys.argv[1] but performs specific tasks.
+* Custom scripting/sandboxing.
+  * Should variable arguments need to be passed, write a script that takes sys.argv[1] but performs specific tasks.
   
 All of that taken into account, this is why there are two versions included. One with/out the PassArg() capabilities. The keyValuePairs.txt acts as a sandbox for limiting the CLI to predefined commands/aliases. Whereas PassArg() expands the CLI to accept variables on host machine (ping 8.8.8.8 or curl www.website.com) but opens you up to a potential world of hurt. My suggestion is to make secondary scripts that can process these variables but perform very specific tasks. (send downloaded .apks/html's, curl output as attachments, etc...) Rather than allowing direct access to host Machine's CLI.
 
