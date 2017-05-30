@@ -33,7 +33,13 @@ The inbox search is done by the same search function used in GMail's Web Browser
 It's search regex can be loose or very specific but is mostly greedy. For instance, "Have you seen the movie **ipman**" and simply "**ipman**" will both trigger the same command. However, "**Computer1**" and "**Computer2**" allows seperately define commands to be run on specific computers. ie: Shutdown computer1, reboot computer2.
   
 ## Vulnerabilities
-If a email/SMS is sent with content "PassArg(***echo Hellow Orld***)" then the command between the parens will be executed on the host machine. This arguably isn't necessarily a vulnerabilty in iteself but the fact that the sender email (`from: email.@email.com`) can easily be spoofed, is. No amount of oAuth2 or two factor authentication will change this vuln inside the code. Instead there will be changes to include the following: Script will be used with an unpublicised, obfuscated email address. More obscure (not hardcoded [last arg in keyValuePairs?] customizeable) PassArg() variable. Make shift dual authentication from inside received message. ie: Must end with special (changing) passcode defined in txt file. Furthermore, white/blacklist certain commands, "Are you sure you want to issue #{command} on #{system}? Y or N?", etc..  
+If a email/SMS is sent with content "PassArg(***echo Hellow Orld***)" then the command between the parens will be executed on the host machine. This arguably isn't necessarily a vulnerabilty in iteself but the fact that the sender email (`from: email.@email.com`) can easily be spoofed, is. No amount of oAuth2 or two factor authentication will change this vuln inside the code. Instead there will be changes to include the following:  
+  
+* Script will be used with an unpublicised, obfuscated email address.
+* More obscure (not hardcoded [last arg in keyValuePairs?] customizeable) PassArg() variable.
+* Make shift dual authentication from inside received message. ie: Must end with special (changing) passcode defined in txt file.
+* White/blacklist certain commands, "Are you sure you want to issue #{command} on #{system}? Y or N?", etc..  
+* Custom scripting/sandboxing. Should variable arguments need to be passed, write a script that takes sys.argv[1] but performs specific tasks.
   
 All of that taken into account, this is why there are two versions included. One with/out the PassArg() capabilities. The keyValuePairs.txt acts as a sandbox for limiting the CLI to predefined commands/aliases. Whereas PassArg() expands the CLI to accept variables on host machine (ping 8.8.8.8 or curl www.website.com) but opens you up to a potential world of hurt. My suggestion is to make secondary scripts that can process these variables but perform very specific tasks. (send downloaded .apks/html's, curl output as attachments, etc...) Rather than allowing direct access to host Machine's CLI.
 
@@ -49,6 +55,7 @@ All of that taken into account, this is why there are two versions included. One
 `pApi.exe`  
 
 ## TODO
+* 'help' prompt, similiar to other text based services which gives user list of passable arguments and their features.
 * <strike>Add function that allows custom arguments/commands to be sent to host computer **not** listed in keyValuePairs.txt
   * local computer commands that require variables. ie: ping www.google.com, whois ***8.8.8.8***</strike>
 * Whitelist other addresses? Allows wife/coworker address to utilize tool. Reply to address sent from, not only from txt file.
