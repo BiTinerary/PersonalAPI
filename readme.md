@@ -24,33 +24,18 @@ ie: Computer repair, virus removal, anti virus installation, etc...  See: https:
 ie: send text/picture/attachment from Nokia 3310 but return **only** the results of a machine learning computer.  
   
 ## Overview
-Run while loop on Orangepi or equivalent SBC. Scan inbox of email for keyword delivered by specified email address.  
-`if unread.message.exists? from: myphonenumber@mymetropcs.com` trigger respective linux command. Delete message. Send alert to email address or phone number.   
+Run while loop on Orangepi or equivalent SBC. Scan inbox for keyword delivered by specified email address. Trigger respective command. Delete message. Send alert to email address or phone number.  
 
-**keyValuePairs.txt** contains a dictionary which keys pertain to the keyword that the script looks for in your inbox. If keyword is found, the respective value is the literal command to be executed. If this command has an output, this will be sent as an alert message to the recipient defined on the last line of **loginCreds.txt**.  
+**keyValuePairs.txt** contains a dictionary which key's pertain to the keyword that the script looks. If found, the respective value is the command to be executed. If this command has an output, this will be sent as a message to the recipient defined in **loginCreds.txt**.  
 
-After the text files are read, **pAPI.rb** searches for the keywords provided. The search is done by the same GMail search function available from within the Web Browser GUI. Specifically `from: #{recipient} in:unread #{keyword}`. This disallows foreign emails from triggering commands and can also be scaled to include other Google search features like `has attachment`, `to:address@gmail.com`, date ranges and more.  
+The inbox search is done by the same search function used in GMail's Web Browser UI. The specific search is `from: #{recipient} in:unread #{keyword}`. This disallows foreign emails from triggering commands and can also be scaled to include other Google search features like `has attachment`, `to:address@gmail.com`, date ranges and more. **Note**: the `from:` address can easily be spoofed.  
 
-It's search regex can be loose or very specific. For instance, "Have you seen that movie **ipman**" and simply "**ipman**" will both be enough to trigger a command. However, "**Computer1**" and "**Computer2**" allows seperately define commands to be run on specific computers. ie: Shutdown computer 1, reboot computer 2.
-
-If these commands contain an output, send that information as notifications. This can be used for alerts or updates of online information, has the computer's internet been restored?, what is it's IP Address, return API like information. MAC Address, OS/System info, etc..? The world is your oyster and Bob's your uncle.  
-  
-**Some more ideas:**  
-`someAndroidApp` == webscrape `appFileName.apk` and reply to phone with .apk ass attachment.
-`ipman` == then `curl icanhazip.com` and send SMS with response.  
-`creditScore` == run webscrape script to get credit Score, current alerts, last opened account, identity scurity status, etc...  
-`laidOff` == send out resume to specified email addresses.  
-`weather 55108` == wunderground API response for zipcode  
-`blackout` == run mass shutdown/kill command on device/s?  
-`find regexForPhoneNumber` == response with Pipl.com api results.  
-
-If command detected but from stranger number, send response after authentication on personal device?  
-Take arguments passed from email trigger. Parsing this email is tricky since MMS's sent from phone are base64 encoded along with something else.
+It's search regex can be loose or very specific but is mostly greedy. For instance, "Have you seen the movie **ipman**" and simply "**ipman**" will both trigger the same command. However, "**Computer1**" and "**Computer2**" allows seperately define commands to be run on specific computers. ie: Shutdown computer1, reboot computer2.
   
 ## Vulnerabilities
-If a email/SMS is sent with content "PassArg(***echo Hellow Orld***)" then the command between the parens will be executed on the host machine. This arguably isn't necessarily a vulnerabilty in iteself but the fact that the sender email (`from: email.@email.com`) can easily be spoofed, is. No amount of oAuth2 or two factor authentication will change this vuln inside the code. Instead there will be changes to include the following: Script will be used with an unpublicised, obfuscated email address. More obscure (not hardcoded [last arg in keyValuePairs?] customizeable) PassArg() variable. Make shift dual authentication from inside received message. ie: Must end with special (changing) passcode defined in txt file. Furthermore, white/blacklist certain commands, "Are you sure you want to issue #{command} on #{system}? Y or N?", etc..
-
-All of that taken into account, this is why there are two versions included. One with/out the PassArg() capabilities. The keyValuePairs.txt acts as a sandbox for limiting the CLI abilities to predefined commands/aliases. Whereas PassArg() expands the CLI to accept variables on host machine (ping 8.8.8.8 or curl www.website.com) but opens you up to a potential world of hurt. My suggestion is to make secondary scripts that can process these variables but perform very specific tasks. (send downloaded .apks/html's, curl output as attachments, etc...) Rather than allowing direct access to host Machine's CLI.
+If a email/SMS is sent with content "PassArg(***echo Hellow Orld***)" then the command between the parens will be executed on the host machine. This arguably isn't necessarily a vulnerabilty in iteself but the fact that the sender email (`from: email.@email.com`) can easily be spoofed, is. No amount of oAuth2 or two factor authentication will change this vuln inside the code. Instead there will be changes to include the following: Script will be used with an unpublicised, obfuscated email address. More obscure (not hardcoded [last arg in keyValuePairs?] customizeable) PassArg() variable. Make shift dual authentication from inside received message. ie: Must end with special (changing) passcode defined in txt file. Furthermore, white/blacklist certain commands, "Are you sure you want to issue #{command} on #{system}? Y or N?", etc..  
+  
+All of that taken into account, this is why there are two versions included. One with/out the PassArg() capabilities. The keyValuePairs.txt acts as a sandbox for limiting the CLI to predefined commands/aliases. Whereas PassArg() expands the CLI to accept variables on host machine (ping 8.8.8.8 or curl www.website.com) but opens you up to a potential world of hurt. My suggestion is to make secondary scripts that can process these variables but perform very specific tasks. (send downloaded .apks/html's, curl output as attachments, etc...) Rather than allowing direct access to host Machine's CLI.
 
 ## Executing
 
@@ -62,7 +47,6 @@ All of that taken into account, this is why there are two versions included. One
 
 ### or on Windows..
 `pApi.exe`  
-
 
 ## TODO
 * <strike>Add function that allows custom arguments/commands to be sent to host computer **not** listed in keyValuePairs.txt
@@ -76,5 +60,17 @@ All of that taken into account, this is why there are two versions included. One
 * <strike>Needs final while loop</strike>
 * Test <strike>stdout vs other</strike> non echo command. Works, but needs more commands to be tested.
 * <strike> House keeping: reorganize gmail session and login creds so it's not passed to so many other functions.</strike>
+
+**Some ideas:**  
+`someAndroidApp` == webscrape `appFileName.apk` and reply to phone with .apk ass attachment.
+`ipman` == then `curl icanhazip.com` and send SMS with response.  
+`creditScore` == run webscrape script to get credit Score, current alerts, last opened account, identity scurity status, etc...  
+`laidOff` == send out resume to specified email addresses.  
+`weather 55108` == wunderground API response for zipcode  
+`blackout` == run mass shutdown/kill command on device/s?  
+`find regexForPhoneNumber` == response with Pipl.com api results.  
+
+If command detected but from stranger number, send response after authentication on personal device?  
+Take arguments passed from email trigger. Parsing this email is tricky since MMS's sent from phone are base64 encoded along with something else.
 
 
