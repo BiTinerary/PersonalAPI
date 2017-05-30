@@ -48,7 +48,7 @@ def searchMessage(gmailSesh, keyword, command, recipient)
                     if attachment.filename.end_with? ".txt" # find only the attachment that is a text file.
                         attachmentContent = attachment.read() # read contents (custom argument) from attachment
                         puts attachmentContent #debug
-                        betweenParens = attachmentContent.scan(/\(([^\)]+)\)/).first # regex for passArg(echo Hallo World) == echo Hallo World
+                        betweenParens = attachmentContent.scan(/\(([^\)]+)\)/).first # regex for passArg(echo Hellow Orld) == echo Hellow Orld
                         print betweenParens[0] #debug
                         command = betweenParens[0] # new command variable is just the contents between parens of passArg() email/txt sent.
                     end
