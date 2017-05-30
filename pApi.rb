@@ -1,5 +1,5 @@
 require 'gmail'
-exit if defined?(Ocra)
+#exit if defined?(Ocra)
 #^Ocra is used to make exe's, this allows script to exit infinite loop when checkin dependencies.^
 
 keyValuePairs = './keyValuePairs.txt' # Keys: Keywords, Values: Commands

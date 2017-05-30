@@ -1,5 +1,5 @@
 require 'gmail'
-exit if defined?(Ocra)
+#exit if defined?(Ocra)
 #^Ocra is used to make exe's, this allows script to exit infinite loop when checkin dependencies.^
 
 keyValuePairs = './keyValuePairs.txt' # Keys: Keywords, Values: Commands
@@ -43,6 +43,17 @@ def searchMessage(gmailSesh, keyword, command, recipient)
     gmailSesh.inbox.emails(gm: "from: #{recipient} in:unread '#{keyword}'").each do |email|
         #puts email.body
         if email.body != nil
+            if keyword == 'PassArg()' # if passArg() keyword is found, run custom command.
+                email.message.attachments.each do |attachment| # turn every attachment into variable
+                    if attachment.filename.end_with? ".txt" # find only the attachment that is a text file.
+                        attachmentContent = attachment.read() # read contents (custom argument) from attachment
+                        puts attachmentContent #debug
+                        betweenParens = attachmentContent.scan(/\(([^\)]+)\)/).first # regex for passArg(echo Hellow Orld) == echo Hellow Orld
+                        print betweenParens[0] #debug
+                        command = betweenParens[0] # new command variable is just the contents between parens of passArg() email/txt sent.
+                    end
+                end
+            end
             email.delete! # delete email so for loop doesn't repeate previous commands
             command = %x(#{command}).chomp
             sendEmail(gmailSesh, recipient, "#{command}") # send command output to recipient using gmail session.
