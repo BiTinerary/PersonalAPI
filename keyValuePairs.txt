@@ -3,3 +3,5 @@ killALL, shutdown -s -t 0
 rebootALL, restart -r -t 0
 tubular, echo dude
 PassArg(), echo Fail
+clockIn, python ./customScripts/pytime.py clockin
+clockOut, python ./customScripts/pytime.py clockout
