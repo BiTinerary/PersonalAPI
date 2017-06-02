@@ -1,14 +1,4 @@
-## Requirements
-* [Gmail For Ruby](https://github.com/gmailgem/gmail)  
-	* Visit their repo for extensive example code for sending, reading, labelling, searching, deleting, etc... emails.
-* [omniauth-google-oauth2](https://github.com/zquestz/omniauth-google-oauth2): To utilize oAuth2. Or not, if you wanna be the kinda person who stores credentials in plain text.  
-	* Don't be that person
-	* Visit their repo for setting up Google Developer API credentials, ID's, etc... for your gmail account.  
-	* As well as example code for retrieving oAuth2 tokens.  
-* [Rails](http://railsinstaller.org/en): Dependency of `omniauth-google-oauth2`  
-* **loginCreds.txt** and **keyValuePairs.txt** files in same directory as script.
-    * Make sure encoding is correct after you put in your specific credentials/changes.
-    * These text file **names** are the only variables hardcoded into the script/executable.
+<img src=='https://github.com/BiTinerary/PersonalAPI/customScripts/exampleScreenshot.png'>
 
 ## Why?
 The concept is very similar to text based banking, in practice. However, can be customized to perform other services. Such as...
@@ -22,6 +12,18 @@ ie: Computer repair, virus removal, anti virus installation, etc...  See: https:
 
 **Cloud computing concept**: A minimalist interface to a device that is capable of exponentially more computing power.  
 ie: send text/picture/attachment from Nokia 3310 but return **only** the results of a machine learning computer.  
+  
+## Requirements
+* [Gmail For Ruby](https://github.com/gmailgem/gmail)  
+	* Visit their repo for extensive example code for sending, reading, labelling, searching, deleting, etc... emails.
+* [omniauth-google-oauth2](https://github.com/zquestz/omniauth-google-oauth2): To utilize oAuth2. Or not, if you wanna be the kinda person who stores credentials in plain text.  
+	* Don't be that person
+	* Visit their repo for setting up Google Developer API credentials, ID's, etc... for your gmail account.  
+	* As well as example code for retrieving oAuth2 tokens.  
+* [Rails](http://railsinstaller.org/en): Dependency of `omniauth-google-oauth2`  
+* **loginCreds.txt** and **keyValuePairs.txt** files in same directory as script.
+    * Make sure encoding is correct after you put in your specific credentials/changes.
+    * These text file **names** are the only variables hardcoded into the script/executable.
   
 ## Overview
 Run while loop on Orangepi or equivalent SBC. Scan inbox for keyword delivered by specified email address. Trigger respective command. Delete message. Send alert to email address or phone number.  
