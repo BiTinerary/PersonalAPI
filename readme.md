@@ -1,9 +1,9 @@
+## Why?
+The concept is very similar to text based banking, in practice. However, can be customized to perform other services. Such as...
+
 <p align="center">
 <img src='https://github.com/BiTinerary/PersonalAPI/blob/master/customScripts/smallExampleScreenShot.png'>
 </p>
-
-## Why?
-The concept is very similar to text based banking, in practice. However, can be customized to perform other services. Such as...
 
 **Mass Computer Automation**: Issue one command that triggers script/s on several computers simultaneously.  
 ie: Computer repair, virus removal, anti virus installation, etc...  See: https://github.com/BiTinerary/BLDZRvZ
