@@ -1,4 +1,4 @@
-<img src='https://github.com/BiTinerary/PersonalAPI/blob/master/customScripts/exampleScreenShot.png'>
+<center><img src='https://github.com/BiTinerary/PersonalAPI/blob/master/customScripts/smallExampleScreenShot.png'></center>
 
 ## Why?
 The concept is very similar to text based banking, in practice. However, can be customized to perform other services. Such as...
