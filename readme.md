@@ -1,10 +1,6 @@
 ## Why?
 The concept is very similar to text based banking, in practice. However, can be customized to perform other services. Such as...
 
-<p align="center">
-<img src='https://github.com/BiTinerary/PersonalAPI/blob/master/customScripts/smallExampleScreenShot.png'>
-</p>
-
 **Mass Computer Automation**: Issue one command that triggers script/s on several computers simultaneously.  
 ie: Computer repair, virus removal, anti virus installation, etc...  See: https://github.com/BiTinerary/BLDZRvZ
 
@@ -14,6 +10,10 @@ ie: Computer repair, virus removal, anti virus installation, etc...  See: https:
 
 **Cloud computing concept**: A minimalist interface to a device that is capable of exponentially more computing power.  
 ie: send text/picture/attachment from Nokia 3310 but return **only** the results of a machine learning computer.  
+  
+<p align="center">
+<img src='https://github.com/BiTinerary/PersonalAPI/blob/master/customScripts/smallExampleScreenShot.png'>
+</p>
   
 ## Requirements
 * [Gmail For Ruby](https://github.com/gmailgem/gmail)  
