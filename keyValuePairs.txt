@@ -1,7 +1,8 @@
-ipman, curl icanhazip.com
-killALL, shutdown -s -t 0
-rebootALL, restart -r -t 0
-tubular, echo dude
-PassArg(), echo Fail
-clockIn, python ./customScripts/pytime.py clockin
-clockOut, python ./customScripts/pytime.py clockout
+IPMAN, curl icanhazip.com
+SMALLRAT, python ./customScripts/regexIPScraper.py
+KILL, shutdown -s -t 0
+REBOOT, restart -r -t 0
+CLOCKIN, python ./customScripts/pytime.py clockin
+CLOCKOUT, python ./customScripts/pytime.py clockout
+PASSARG(), echo Fail
+HELP, type HELP.txt
