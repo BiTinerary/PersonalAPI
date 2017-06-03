@@ -91,5 +91,4 @@ All that said, there are two versions included. One with/out the PassArg() capab
 `blackout` == run mass shutdown/kill command on device/s?  
 `find regexForPhoneNumber` == response with Pipl.com api results.  
 
-If command detected but from stranger number, send response after authentication on personal device?  
-Take arguments passed from email trigger. Parsing this email is tricky since MMS's sent from phone are base64 encoded along with something else.
+If command detected but from foreign number, send response after authentication on personal device? 
