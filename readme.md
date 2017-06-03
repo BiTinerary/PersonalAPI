@@ -1,5 +1,5 @@
 # Personal API
-Use gmail to scan inbox for unread messages containing keywords. Trigger respective command and send customized alerts.
+Use gmail to scan inbox for unread messages containing keywords. Trigger respective commands and send customized alerts.
 Usage is very similar to text based banking, in practice. However, can be customized to perform other services.
   
 <p align="center">
