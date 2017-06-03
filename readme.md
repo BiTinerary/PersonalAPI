@@ -78,6 +78,7 @@ All that said, there are two versions included. One with/out the PassArg() capab
 * <strike> House keeping: reorganize gmail session and login creds so it's not passed to so many other functions.</strike>
 
 **Some ideas:**  
+`reminder` == send emails/messages in the future.
 `someAndroidApp` == webscrape `appFileName.apk` and reply to phone with .apk ass attachment.
 `ipman` == then `curl icanhazip.com` and send SMS with response.  
 `creditScore` == run webscrape script to get credit Score, current alerts, last opened account, identity scurity status, etc...  
