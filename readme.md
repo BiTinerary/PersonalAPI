@@ -1,6 +1,5 @@
 # Personal API
-Use gmail to scan inbox for unread messages containing keywords. Trigger respective commands and send customized alerts.
-Usage is very similar to text based banking, in practice. However, can be customized to perform other services.
+Use gmail to scan inbox for unread messages containing keywords. Trigger commands, run scripts and send alerts corresponding to said keywords. Usage is very similar to text based banking, in practice. However, can be customized to perform pretty much whatever.
   
 <p align="center">
 <img src='https://github.com/BiTinerary/PersonalAPI/blob/master/customScripts/smallExampleScreenShot.png'>
