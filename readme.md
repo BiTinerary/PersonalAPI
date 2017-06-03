@@ -31,7 +31,7 @@ ie: send text/picture/attachment from Nokia 3310 but return **only** the results
 ## Overview
 This is running continuously on a Orangepi board as a type of server which also handles 'home base' operations (IOT, WOL, Reed Switches) over VLAN, on top of RetrOrangePi.
 
-Overall of the ***pAPI.rb*** script is a while loop that scans inbox for keywords delivered by a specified email address. Trigger command/script. Delete message as to not rerun commands. ***keyValuePairs.txt*** contains a dictionary which key's pertain to the keyword that the script looks for. If found, the respective value is the command to be executed. If this command has **stdout** or print statements, this will be sent as an MMS to the recipient defined in ***loginCreds.txt***.
+Overall of the ***pAPI.rb*** script is a while loop that scans inbox for keywords delivered by a specified email address. Trigger command/script. Delete message as to not rerun commands. ***keyValuePairs.txt*** contains a dictionary which key's pertain to the keyword that the script looks for. If found, it's respective value will be executed as a command. If this command has **stdout** or print statements, this will be sent to the recipient defined in ***loginCreds.txt***.
 
 The inbox search is done by the same search function used in GMail's Web Browser UI.  
 The specific search is `from: #{recipient} in:unread #{keyword}`. This can be scaled to include other Google search features like `has attachment`, `to:address@gmail.com` and more. **Note**: the `from:` address can easily be spoofed.  
