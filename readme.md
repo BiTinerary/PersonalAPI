@@ -78,7 +78,7 @@ All that said, there are two versions included. One with/out the PassArg() capab
 * <strike>'unread' message parsing</strike>
 * <strike>main loop: `for message.each do |search keyword| end if keyword == 'shutdown' %x(shutdown now) end`</strike>
 * <strike>Needs final while loop</strike>
-* Test <strike>stdout vs other</strike> non echo command. Works, but needs more commands to be tested.
+* <strike>Test stdout vs other non echo command. Works, but needs more commands to be tested. </strike>
 * <strike> House keeping: reorganize gmail session and login creds so it's not passed to so many other functions.</strike>
 
 **Some ideas:**  
