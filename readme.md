@@ -39,6 +39,17 @@ The specific search is `from: #{recipient} in:unread #{keyword}`. This disallows
 
 The search regex can be loose or very specific but is mostly greedy. For instance, "Have you seen the movie **ipman**" and simply "**IPMAN**" will both trigger the same command. However, "**Computer1**" and "**Computer2**" allows seperately define commands to be run on specific computers. ie: Shutdown computer1, reboot computer2.
   
+## Executing
+
+### On Linux based systems...  
+    gem install gmail  
+    git clone https://github.com/BiTinerary/PersonalAPI  
+    cd PersonalAPI  
+    ruby pAPI.rb  
+
+### or on Windows..
+`pApi.exe`  
+
 ## Vulnerabilities
 If a email/SMS is sent with content "PassArg(***echo Hellow Orld***)" then the command between the parens will be executed on the host machine. This arguably isn't a vulnerabilty in iteself but the fact that the sender email (`from: email.@email.com`) can easily be spoofed, is. No amount of oAuth2 or two factor authentication will change this vuln inside the code. Instead, there are plans to make some of the following changes:  
   
@@ -51,17 +62,6 @@ If a email/SMS is sent with content "PassArg(***echo Hellow Orld***)" then the c
   * Should variable arguments need to be passed, write a script that takes sys.argv[1] but performs specific tasks.
   
 All that said, there are two versions included. One with/out the PassArg() capabilities. The ***keyValuePairs.txt*** acts as a sandbox for limiting the CLI to predefined aliases. Whereas PassArg() expands the CLI to accept variables on host machine (ping **8.8.8.8** or curl **www.website.com**) but opens you up to a potential world of hurt. My suggestion is to make secondary scripts that can process these variables but perform very specific tasks, as seen in **./customScripts** folder, rather than allowing direct access to host Machine's CLI.
-
-## Executing
-
-### On Linux based systems...  
-    gem install gmail  
-    git clone https://github.com/BiTinerary/PersonalAPI  
-    cd PersonalAPI  
-    ruby pAPI.rb  
-
-### or on Windows..
-`pApi.exe`  
 
 ## TODO
 * 'help' prompt, similiar to other text based services which gives user list of passable arguments and their features.
