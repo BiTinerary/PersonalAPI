@@ -50,6 +50,10 @@ The search regex can be loose or very specific but is mostly greedy. For instanc
 ### or on Windows..
 `pApi.exe`  
 
+### Roll your own:
+    gem install ocra
+    ocra customRubyScript.rb
+
 ## Vulnerabilities
 If a email/SMS is sent with content "PassArg(***echo Hellow Orld***)" then the command between the parens will be executed on the host machine. This arguably isn't a vulnerabilty in iteself but the fact that the sender email (`from: email.@email.com`) can easily be spoofed, is. No amount of oAuth2 or two factor authentication will change this vuln inside the code. Instead, there are plans to make some of the following changes:  
   
