@@ -50,7 +50,8 @@ The search regex can be loose or very specific but is mostly greedy. For instanc
 ### or on Windows..
 `pApi.exe`  
 
-### Roll your own:
+No it's not a signed .exe. Yes it's an exact copy of the **pAPI.rb** script. Don't wanna take my word for it? Roll your own. https://github.com/larsch/ocra  
+    
     gem install ocra
     ocra customRubyScript.rb
 
