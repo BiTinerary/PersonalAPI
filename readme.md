@@ -34,7 +34,7 @@ This is running continuously on a Orangepi board as a type of server which also 
 Overall of the ***pAPI.rb*** script is a while loop that scans inbox for keywords delivered by a specified email address. Trigger command/script. Delete message as to not rerun commands. ***keyValuePairs.txt*** contains a dictionary which key's pertain to the keyword that the script looks for. If found, the respective value is the command to be executed. If this command has **stdout** or print statements, this will be sent as an MMS to the recipient defined in ***loginCreds.txt***.
 
 The inbox search is done by the same search function used in GMail's Web Browser UI.  
-The specific search is `from: #{recipient} in:unread #{keyword}`. This disallows foreign emails from triggering commands and can also be scaled to include other Google search features like `has attachment`, `to:address@gmail.com`, date ranges and more.  
+The specific search is `from: #{recipient} in:unread #{keyword}`. This disallows foreign emails from triggering commands and can also be scaled to include other Google search features like `has attachment`, `to:address@gmail.com` and more.  
 **Note**: the `from:` address can easily be spoofed.  
 
 The search regex can be loose or very specific but is mostly greedy. For instance, "Have you seen the movie **ipman**" and simply "**IPMAN**" will both trigger the same command. However, "**Computer1**" and "**Computer2**" allows seperately define commands to be run on specific computers. ie: Shutdown computer1, reboot computer2.
