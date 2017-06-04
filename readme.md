@@ -67,7 +67,7 @@ If a email/SMS is sent with content "PassArg(***echo Hellow Orld***)" then the c
   
 All that said, there are two versions included. One with/out the PassArg() capabilities. The ***keyValuePairs.txt*** acts as a sandbox for limiting the CLI to predefined aliases. Whereas PassArg() expands the CLI to accept variables on host machine (ping **8.8.8.8** or curl **www.website.com**) but opens you up to a potential world of hurt. My suggestion is to make secondary scripts that can process these variables but perform very specific tasks, as seen in **./customScripts** folder, rather than allowing direct access to host Machine's CLI.
 
-An example of this can be seen in the **pAPIBeer.rb** version. Send BEER("Corona") as a message, the keyword BEER will be recognized. Variable "Corona" will be parsed and executed literally as `python ./customScripts/brewery.py "Corona"`. The **`brewery.py`** uses BreweryDB API to return **.json** results of the IBU's, ABV, Name, image, Brewery of said beer.
+An example of this can be seen in the **pAPIBeer.rb** version. Send BEER("Corona") as a message, the keyword BEER will be recognized. Variable "Corona" will be parsed and executed literally as `python ./customScripts/brewery.py "Corona"`. The **`brewery.py`** uses BreweryDB API to return **.json** results of the IBU's, ABV, Name, image, Brewery of said beer. No I'm not that interested in beer, it's just an (enticing :P) example of how you can integrate API's and other utilities outside the base script while restricting control.
 
 ## TODO
 * <strike>'help' prompt, similiar to other text based services which gives user list of passable arguments and their features.</strike>
