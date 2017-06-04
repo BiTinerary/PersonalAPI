@@ -4,5 +4,6 @@ KILL, shutdown -s -t 0
 REBOOT, restart -r -t 0
 CLOCKIN, python ./customScripts/pytime.py clockin
 CLOCKOUT, python ./customScripts/pytime.py clockout
+BEER(), echo Fail
 PASSARG(), echo Fail
 HELP, type HELP.txt
