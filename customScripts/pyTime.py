@@ -1,7 +1,7 @@
 import gspread, datetime, re, sys
 from oauth2client.service_account import ServiceAccountCredentials
 
-scope = ['https://spreadsheets.google.com/feeds'] #line 17-21 are GoogleSheets API functions for edtting permissions on specific sheet names.
+scope = ['https://spreadsheets.google.com/feeds']
 credentials = ServiceAccountCredentials.from_json_keyfile_name('./customScripts/GspreadTimeClock-d5dad30dfff8.json', scope)
 gc = gspread.authorize(credentials)
 sheet = gc.open('Time Sheet')
