@@ -22,8 +22,7 @@ ie: send text/picture/attachment from Nokia 3310 but return **only** the results
 * [omniauth-google-oauth2](https://github.com/zquestz/omniauth-google-oauth2): To utilize oAuth2. Or not, if you wanna be the kinda person who stores credentials in plain text.  
 	* Don't be that person
 	* Visit their repo for setting up Google Developer API credentials, ID's, etc... for your gmail account.  
-	* As well as example code for retrieving oAuth2 tokens.  
-* [Rails](http://railsinstaller.org/en): Dependency of `omniauth-google-oauth2`  
+	* As well as example code for retrieving oAuth2 tokens.    
 * **loginCreds.txt** and **keyValuePairs.txt** files in same directory as script.
     * Make sure encoding is correct after you put in your specific credentials/changes.
     * These text file **names** are the only variables hardcoded into the script/executable.
