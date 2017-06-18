@@ -69,6 +69,9 @@ All that said, there are two versions included. One with/out the PassArg() capab
 An example of this can be seen in the **pAPIBeer.rb** version. Send BEER("Corona") as a message, the keyword BEER will be recognized. Variable "Corona" will be parsed and executed literally as `python ./customScripts/brewery.py "Corona"`. The **`brewery.py`** uses BreweryDB API to return **.json** results of the IBU's, ABV, Name, image, Brewery of said beer. No I'm not that interested in beer, it's just an (enticing :P) example that I could throw together quickly to show API integration and outside error handling, while still restricting access.
 
 ## TODO
+* Allocate all credentials, API keys, oAuth (especially for customScripts) to one single file. 
+ * These may seem hodge podge because they are. They're individual projects, worked on at different times.
+ * Added to and most importantly coded at different levels of knowledge, patience, necessity, importance, etc...
 * <strike>'help' prompt, similiar to other text based services which gives user list of passable arguments and their features.</strike>
 * <strike>Add function that allows custom arguments/commands to be sent to host computer **not** listed in keyValuePairs.txt
   * local computer commands that require variables. ie: ping www.google.com, whois ***8.8.8.8***</strike>
