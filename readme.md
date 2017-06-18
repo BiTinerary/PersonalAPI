@@ -70,8 +70,8 @@ An example of this can be seen in the **pAPIBeer.rb** version. Send BEER("Corona
 
 ## TODO
 * Allocate all credentials, API keys, oAuth (especially for customScripts) to one single file. 
- * These may seem hodge podge because they are. They're individual projects, worked on at different times.
- * Added to and most importantly coded at different levels of knowledge, patience, necessity, importance, etc...
+  * These may seem hodge podge because they are. They're individual projects, worked on at different times.
+  * Added to and most importantly coded at different levels of knowledge, patience, necessity, importance, etc...
 * <strike>'help' prompt, similiar to other text based services which gives user list of passable arguments and their features.</strike>
 * <strike>Add function that allows custom arguments/commands to be sent to host computer **not** listed in keyValuePairs.txt
   * local computer commands that require variables. ie: ping www.google.com, whois ***8.8.8.8***</strike>
