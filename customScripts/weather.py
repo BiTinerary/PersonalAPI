@@ -1,7 +1,7 @@
 import requests, json, time, sys
 
-with open('config.json', 'r') as f:
-    config = json.load(f)
+with open('config.json', 'r') as file:
+    config = json.load(file)
 
 darkSkyKey = config['darkSkyKey']
 geoLocKey = config['geoLocKey']
@@ -52,7 +52,7 @@ def dailyDetails(theGoods): # get percip, feels like, alerts. humidity, etc... f
 		print '------------------------'
 		print theGoodsCurrent['summary']
 		print 'Temp: %s Feels like: %s' % (theGoodsCurrent['temperature'], theGoodsCurrent['apparentTemperature'])
-		print 'Humidity: %s Wind speed: %sMPH' % (theGoodsCurrent['humidity'], theGoodsCurrent['windSpeed'])
+		print 'Humidity: %s Wind: %sMPH' % (theGoodsCurrent['humidity'], theGoodsCurrent['windSpeed'])
 		print 'Percipitation: %s%%' % theGoodsCurrent['precipProbability']
 
 		if theGoodsCurrent['precipProbability'] > 0: # if percipitation exists
@@ -80,7 +80,7 @@ def getThreeDays(): # return specific json key/values for 3 days. Time, percip, 
 	print '3 Days in %s, %s' % (latLonCityState[2], latLonCityState[3])
 	print '------------------------'
 	for key, vals in timeSummary.iteritems():
-		print "%s - %s Percip: %s Intensity: %s" % (key, vals[0], round(float(vals[1]), 2), round(float(vals[2]), 2))
+		print "%s - %s %s%% chance of rain with %s intensity.\n" % (key, vals[0], round(float(vals[1]), 2), round(float(vals[2]), 2))
 
 if __name__ == "__main__":
 	latLonCityState = coordinatesOf(zipOrAddy)
