@@ -69,9 +69,9 @@ def getThreeDays(): # return specific json key/values for 3 days. Time, percip, 
 	for day in traeDays: # for every day, convert epoch time, print specific details with layout.
 		epoch = day['time']
 		humanTime = time.strftime('%m.%d', time.localtime(epoch)) #returns midnight for each day %H:%M:%S
-		summary = str(day['summary']) # sting because otherwise encoding prefixes values with unicode ie: u''
-		percipProb = float(day['precipProbability'])
-		percipIntensity = float(day['precipIntensity'])
+		summary = str(day['summary']) # string because otherwise encoding prefixes values with unicode ie: u''
+		percipProb = int(float(day['precipProbability']) * 100) # Convert float to integer, simple percentage. ie: 20% not 0.20 or 20.00%
+                percipIntensity = round(float(day['precipIntensity']), 2) # round millimeters of rain/hour, which is a float.
 
 		details = [summary, percipProb, percipIntensity]
 		timeSummary[humanTime] = details
