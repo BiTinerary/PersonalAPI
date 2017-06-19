@@ -43,7 +43,7 @@ def searchMessage(gmailSesh, keyword, command, recipient)
     gmailSesh.inbox.emails(gm: "from: #{recipient} in:unread '#{keyword}'").each do |email|
         #puts email.body
         if email.body != nil
-            if keyword == 'PassArg()' # if passArg() keyword is found, run custom command.
+            if keyword == 'PASSARG()' # if passArg() keyword is found, run custom command.
                 email.message.attachments.each do |attachment| # turn every attachment into variable
                     if attachment.filename.end_with? ".txt" # find only the attachment that is a text file.
                         attachmentContent = attachment.read() # read contents (custom argument) from attachment
