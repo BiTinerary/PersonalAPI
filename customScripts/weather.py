@@ -70,8 +70,8 @@ def getThreeDays(): # return specific json key/values for 3 days. Time, percip, 
 		epoch = day['time']
 		humanTime = time.strftime('%m.%d', time.localtime(epoch)) #returns midnight for each day %H:%M:%S
 		summary = str(day['summary']) # sting because otherwise encoding prefixes values with unicode ie: u''
-		percipProb = str(day['precipProbability'])
-		percipIntensity = str(day['precipIntensity'])
+		percipProb = float(day['precipProbability'])
+		percipIntensity = float(day['precipIntensity'])
 
 		details = [summary, percipProb, percipIntensity]
 		timeSummary[humanTime] = details
