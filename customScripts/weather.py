@@ -79,7 +79,7 @@ def getThreeDays(): # return specific json key/values for 3 days. Time, percip, 
 	#print '%s-%s in %s, %s' % (timeSummary.keys()[0], timeSummary.keys()[-1], latLonCityState[2], latLonCityState[3])
 	print '3 Days in %s, %s' % (latLonCityState[2], latLonCityState[3])
 	print '------------------------'
-	for key, vals in timeSummary.iteritems():
+	for key, vals in sorted(timeSummary.iteritems()):
 		print "%s - %s %s%% chance of rain with %s intensity.\n" % (key, vals[0], round(float(vals[1]), 2), round(float(vals[2]), 2))
 
 if __name__ == "__main__":
