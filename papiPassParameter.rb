@@ -49,9 +49,9 @@ def searchMessage(gmailSesh, keyword, command, recipient)
                         attachmentContent = attachment.read() # read contents (custom argument) from attachment
                         puts attachmentContent #debug
                         betweenParens = attachmentContent.scan(/\(([^\)]+)\)/).first # regex for passArg(echo Hellow Orld) == echo Hellow Orld
-                        print betweenParens[0] #debug
+                        puts betweenParens[0] #debug
                         command, parameter = betweenParens[0].split(' ') # new command variable is just the contents between parens of passArg() email/txt sent.
-                        print command, parameter
+                        puts command, parameter
                         command = "python ./customScripts/#{command}.py #{parameter}"
                         email.delete!
                         command = %x(#{command}).chomp
@@ -59,13 +59,16 @@ def searchMessage(gmailSesh, keyword, command, recipient)
                         return true
                     end
                 end
+            else
+            	puts 'here1'
+            	email.delete! # delete email so for loop doesn't repeate previous commands
+            	puts 'here2'
+            	command = %x(#{command}).chomp
+            	sendEmail(gmailSesh, recipient, "#{command}") # send command output to recipient using gmail session.
+            	puts "Found Keyword: #{keyword}" #debug
+            	puts "Command output: #{command}" #debug
+            	return true # move on to next keyword
             end
-            email.delete! # delete email so for loop doesn't repeate previous commands
-            command = %x(#{command}).chomp
-            sendEmail(gmailSesh, recipient, "#{command}") # send command output to recipient using gmail session.
-            puts "Found Keyword: #{keyword}" #debug
-            puts "Command output: #{command}" #debug
-            return true # move on to next keyword
         end
     end
     puts "Keyword not found!"
