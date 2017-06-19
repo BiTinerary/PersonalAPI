@@ -1,7 +1,11 @@
 from brewerydb.brewerydb import BreweryDB
-import sys
+import sys, json
 
-brew_api = BreweryDB('API KEY HERE')
+with open('config.json', 'r') as f:
+    config = json.load(f)
+
+brew_api = BreweryDB(config['breweryDB'])
+
 try: 
     beers = brew_api.search_beer('%s' % sys.argv[1])
     beers = beers[0]
