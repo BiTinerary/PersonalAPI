@@ -51,7 +51,7 @@ def dailyDetails(theGoods): # get percip, feels like, alerts. humidity, etc... f
 		print 'Today in %s, %s' % (latLonCityState[2], latLonCityState[3])
 		print '------------------------'
 		print theGoodsCurrent['summary']
-		print 'Temp: %s Feels like: %s' % (theGoodsCurrent['temperature'], theGoodsCurrent['apparentTemperature'])
+		print 'Temp: %s Feels: %s' % (theGoodsCurrent['temperature'], theGoodsCurrent['apparentTemperature'])
 		print 'Humidity: %s Wind: %sMPH' % (theGoodsCurrent['humidity'], theGoodsCurrent['windSpeed'])
 		print 'Percipitation: %s%%' % theGoodsCurrent['precipProbability']
 
