@@ -1,7 +1,7 @@
 import requests, json, time, sys
 
-with open('config.json', 'r') as file:
-    config = json.load(file)
+with open('./customScripts/config.json', 'r') as f:
+    config = json.load(f, strict=False)
 
 darkSkyKey = config['darkSkyKey']
 geoLocKey = config['geoLocKey']
@@ -40,7 +40,7 @@ def responseFile():
 
 def fullSummary(theGoods): # get json minutely, hourly, daily summaries. ie: details for the hour, day, week/end.
 	minHourDay = "%s %s %s" % (theGoods['minutely']['summary'], theGoods['hourly']['summary'], theGoods['daily']['summary'])
-	print minHourDay
+	print str(minHourDay)
 
 def dailyDetails(theGoods): # get percip, feels like, alerts. humidity, etc... for today.
 	theGoodsCurrent = theGoods['currently']
@@ -58,29 +58,36 @@ def dailyDetails(theGoods): # get percip, feels like, alerts. humidity, etc... f
 		if theGoodsCurrent['precipProbability'] > 0: # if percipitation exists
 			print "Rain intensity: %s" % theGoodsCurrent['precipIntensity'] # print intensity.
 
-def getThreeDays(): # return specific json key/values for 3 days. Time, percip, etc...
-	today = theGoods['daily']['data'][0] # today (zero is yesterday)
-	tomorrow = theGoods['daily']['data'][1] # tomorrow
-	third = theGoods['daily']['data'][2] # Trae day
+def getMultiDays(xDays): # return specific json key/values for 3 days. Time, percip, etc...
+	xDays = int(xDays)
+	
+	daysForecast = []
 
-	traeDays = [today, tomorrow, third]
+	for each in xrange(xDays):
+		day = theGoods['daily']['data'][each]
+		daysForecast.append(day)
+
 	timeSummary = {}
 
-	for day in traeDays: # for every day, convert epoch time, print specific details with layout.
+	for day in daysForecast: # for every day, convert epoch time, print specific details with layout.
 		epoch = day['time']
 		humanTime = time.strftime('%m.%d', time.localtime(epoch)) #returns midnight for each day %H:%M:%S
-		summary = str(day['summary']) # string because otherwise encoding prefixes values with unicode ie: u''
-		percipProb = int(float(day['precipProbability']) * 100) # Convert float to integer, simple percentage. ie: 20% not 0.20 or 20.00%
-                percipIntensity = round(float(day['precipIntensity']), 2) # round millimeters of rain/hour, which is a float.
+		summary = str(day['summary']) # sting because otherwise encoding prefixes values with unicode ie: u''
+		percipProb = int(float(day['precipProbability']) * 100)
+		percipIntensity = round(float(day['precipIntensity']), 2)
+		humidity = day['humidity']
+		windSpeed = day['windSpeed']
+		tempMinMax = int(day['temperatureMin']) + int(day['temperatureMax']) / 2
+		feelsLike = int(day['apparentTemperatureMin']) + int(day['apparentTemperatureMax']) /2
 
-		details = [summary, percipProb, percipIntensity]
+		details = [summary, percipProb, percipIntensity, humidity, windSpeed, tempMinMax, feelsLike]
 		timeSummary[humanTime] = details
 
 	#print '%s-%s in %s, %s' % (timeSummary.keys()[0], timeSummary.keys()[-1], latLonCityState[2], latLonCityState[3])
-	print '3 Days in %s, %s' % (latLonCityState[2], latLonCityState[3])
+	print '%s Days in %s, %s' % (xDays, latLonCityState[2], latLonCityState[3])
 	print '------------------------'
 	for key, value in sorted(timeSummary.iteritems()):
-		print "%s - %s %s%% chance of rain with %s intensity.\n" % (key, value[0], value[1], value[2])
+		print "%s - %s AvgTemp: %s Feels: %s\n%s%% chance of rain at %s mm/hr. %sMPH Winds. Humidity: %s\n" % (key, value[0], value[5], value[6], value[1], value[2], value[3], value[4])
 
 if __name__ == "__main__":
 	latLonCityState = coordinatesOf(zipOrAddy)
@@ -90,10 +97,15 @@ if __name__ == "__main__":
 	try:
 		if sys.argv[1] == 'summary':
 			fullSummary(theGoods)
-		elif sys.argv[1] == '3day':
-			getThreeDays()
+		elif sys.argv[1] == 'forecast':
+			try:
+				getMultiDays(sys.argv[2])
+			except:
+				print "Needs parameter or API didn't return enough days. Returning 3 days.\n"
+				getMultiDays(3)
+
 	except IndexError, e: # If nothing is passed, default to returning today's details.
 		dailyDetails(theGoods)
-		#print e
+		print e
 
 #https://darksky.net/poweredby/
