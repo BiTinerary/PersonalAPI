@@ -43,36 +43,31 @@ def searchMessage(gmailSesh, keyword, command, recipient)
     gmailSesh.inbox.emails(gm: "from: #{recipient} in:unread '#{keyword}'").each do |email|
         #puts email.body
         if email.body != nil
-            if keyword == 'PASSARG()' # if passArg() keyword is found, run custom command.
+            if keyword.include? "()" # if () keyword is found, run custom command.
                 email.message.attachments.each do |attachment| # turn every attachment into variable
                     if attachment.filename.end_with? ".txt" # find only the attachment that is a text file.
                         attachmentContent = attachment.read() # read contents (custom argument) from attachment
-                        puts attachmentContent #debug
-                        betweenParens = attachmentContent.scan(/\(([^\)]+)\)/).first # regex for passArg(echo Hellow Orld) == echo Hellow Orld
-                        puts betweenParens[0] #debug
-                        command, parameter = betweenParens[0].split(' ') # new command variable is just the contents between parens of passArg() email/txt sent.
-                        puts command, parameter
-                        command = "python ./customScripts/#{command}.py #{parameter}"
-                        email.delete!
-                        command = %x(#{command}).chomp
-                        sendEmail(gmailSesh, recipient, "#{command}") # send command output to recipient using gmail session.
-                        return true
+
+                        splitOnParen = attachmentContent.split(/\(([^\)]+)\)/)
+                        
+                        beforeParens = splitOnParen[0].downcase
+                        betweenParens = splitOnParen[1].downcase
+
+                        puts "#{command} #{beforeParens} #{betweenParens}"
+                        command = "#{command} #{beforeParens} #{betweenParens}"
                     end
                 end
-            else
-            	puts 'here1'
-            	email.delete! # delete email so for loop doesn't repeate previous commands
-            	puts 'here2'
-            	command = %x(#{command}).chomp
-            	sendEmail(gmailSesh, recipient, "#{command}") # send command output to recipient using gmail session.
-            	puts "Found Keyword: #{keyword}" #debug
-            	puts "Command output: #{command}" #debug
-            	return true # move on to next keyword
             end
+            email.delete! # delete email so for loop doesn't repeate previous commands
+            command = %x(#{command}).chomp
+            sendEmail(gmailSesh, recipient, "#{command}") # send command output to recipient using gmail session.
+            puts "Found Keyword: #{keyword}" #debug
+            puts "Command output: #{command}" #debug
+            return true # move on to next keyword
         end
     end
     puts "Keyword not found!"
-    return nil
+    return false
 end
 
 def searchAndTrigger(gmailSesh, keyValuePairs, loginCreds) # single login session!
@@ -89,8 +84,8 @@ gmailSesh = loginUsing(loginCreds) # Open single session, then search for all ke
 while true
     x += 1
     begin
-    searchAndTrigger(gmailSesh, keyValuePairs, loginCreds)
-    puts "\n"
+        searchAndTrigger(gmailSesh, keyValuePairs, loginCreds)
+        puts "\n"
     rescue
         puts "Login Failed! Trying again..."
         gmailSesh = loginUsing(loginCreds) # Login session failed previously. Try again.
