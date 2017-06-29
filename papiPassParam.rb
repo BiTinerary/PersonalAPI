@@ -54,7 +54,7 @@ def searchMessage(gmailSesh, keyword, command, recipient)
                         betweenParens = splitOnParen[1].downcase
 
                         puts "#{command} #{beforeParens} #{betweenParens}"
-                        command = "#{command} #{beforeParens} #{betweenParens}"
+                        command = "#{command} #{betweenParens}"
                     end
                 end
             end
