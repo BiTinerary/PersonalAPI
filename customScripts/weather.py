@@ -1,7 +1,7 @@
 import requests, json, time, sys
 
 with open('./customScripts/config.json', 'r') as f:
-    config = json.load(f, strict=False)
+	config = json.load(f, strict=False)
 
 darkSkyKey = config['darkSkyKey']
 geoLocKey = config['geoLocKey']
@@ -77,17 +77,17 @@ def getMultiDays(xDays): # return specific json key/values for 3 days. Time, per
 		percipIntensity = round(float(day['precipIntensity']), 2)
 		humidity = day['humidity']
 		windSpeed = day['windSpeed']
-		tempMinMax = int(day['temperatureMin']) + int(day['temperatureMax']) / 2
-		feelsLike = int(day['apparentTemperatureMin']) + int(day['apparentTemperatureMax']) /2
+		highLow = [int(day['temperatureMin']), int(day['temperatureMax'])]
+		feelsLike = int(int(day['apparentTemperatureMax']) + int(day['apparentTemperatureMax'])) / 2
 
-		details = [summary, percipProb, percipIntensity, humidity, windSpeed, tempMinMax, feelsLike]
+		details = [summary, percipProb, percipIntensity, humidity, windSpeed, highLow, feelsLike]
 		timeSummary[humanTime] = details
 
 	#print '%s-%s in %s, %s' % (timeSummary.keys()[0], timeSummary.keys()[-1], latLonCityState[2], latLonCityState[3])
 	print '%s Days in %s, %s' % (xDays, latLonCityState[2], latLonCityState[3])
 	print '------------------------'
 	for key, value in sorted(timeSummary.iteritems()):
-		print "%s - %s AvgTemp: %s Feels: %s\n%s%% chance of rain at %s mm/hr. %sMPH Winds. Humidity: %s\n" % (key, value[0], value[5], value[6], value[1], value[2], value[3], value[4])
+		print "%s - %s High/Low: %s/%s Feels: %s\n%s%% chance of rain at %s mm/hr. %sMPH Winds. Humidity: %s\n" % (key, value[0], value[5][0], value[5][1], value[6], value[1], value[2], value[3], value[4])
 
 if __name__ == "__main__":
 	latLonCityState = coordinatesOf(zipOrAddy)
@@ -104,8 +104,7 @@ if __name__ == "__main__":
 				print "Needs parameter or API didn't return enough days. Returning 3 days.\n"
 				getMultiDays(3)
 
-	except IndexError, e: # If nothing is passed, default to returning today's details.
+	except IndexError: # If nothing is passed, default to returning today's details.
 		dailyDetails(theGoods)
-		print e
 
 #https://darksky.net/poweredby/
