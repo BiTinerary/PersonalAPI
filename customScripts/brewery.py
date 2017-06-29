@@ -4,10 +4,10 @@ import sys, json
 with open('config.json', 'r') as f:
     config = json.load(f)
 
-brew_api = BreweryDB(config['breweryDB'])
+brewAPI = BreweryDB(config['breweryDB'])
 
 try: 
-    beers = brew_api.search_beer('%s' % sys.argv[1])
+    beers = brewAPI.search_beer('%s' % sys.argv[1])
     beers = beers[0]
     website = beers.brewery["website"]
     breweryName = beers.brewery["name"]
