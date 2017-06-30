@@ -2,8 +2,8 @@ require 'gmail'
 #exit if defined?(Ocra)
 #^Ocra is used to make exe's, this allows script to exit infinite loop when checkin dependencies.^
 
-keyValuePairs = './keyValuePairs.txt' # Keys: Keywords, Values: Commands
-loginCreds = './loginCreds.txt' #Gmail Login credentials
+keyValuePairs = File.join(Dir.pwd, 'keyValuePairs.txt') # Keys: Keywords, Values: Commands
+loginCreds = File.join(Dir.pwd, 'loginCreds.txt') #Gmail Login credentials
 
 def getCredentials(loginCreds) #Allow this to utilize Oauth2
     credentials = []
