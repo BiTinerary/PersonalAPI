@@ -1,0 +1,9 @@
+IPMAN: Host IP
+SMALLRAT: Get FTP IP
+KILL: Shutdown system/s
+REBOOT: Reboot system/s
+CLOCKIN: PunchIn Gsheet
+CLOCKOUT: PunchOut Gsheet
+BEER(): Beer to BrewDB API
+PASSARG(): Command to Host
+HELP: This Menu
