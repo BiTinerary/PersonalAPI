@@ -7,4 +7,4 @@ CLOCKOUT, python ./customScripts/pytime.py clockout
 WEATHER,  python ./customScripts/weather.py
 FORECAST(), python ./customScripts/weather.py forecast
 BEER(), python ./customScripts/brewery.py
-HELP, type HELP.txt
+HELP, type ./customScripts/HELP.txt
