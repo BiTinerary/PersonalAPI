@@ -64,7 +64,7 @@ def searchMessage(gmailSesh, keyword, command, recipient)
                     end
                 end
             end
-            email.unread! # delete email so for loop doesn't repeate previous commands
+            email.delete! # delete email so for loop doesn't repeate previous commands
             command = %x(#{command}).chomp
             sendEmail(gmailSesh, recipient, "#{command}") # send command output to recipient using gmail session.
             puts "Found Keyword: #{keyword}" #debug
