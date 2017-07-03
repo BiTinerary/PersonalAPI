@@ -13,7 +13,7 @@ ie: Computer repair, virus removal, anti virus installation, etc...  See: https:
 
 **Bandwidth efficiency**: Use what's already being paid for but might not normally be accessible. Use home internet to get bits of data rather than soaking up mobile data. Use in places with access to mobile phones but not internet?  
 
-**Cloud computing concept**: A minimalist interface to a device that is capable of exponentially more computing power.  
+**Machine Learning in the Cloud Concept**: A minimalist interface to a device that is capable of exponentially more computing power.  
 ie: send text/picture/attachment from Nokia 3310 but return **only** the results of a machine learning computer.
   
 ## Requirements
@@ -30,7 +30,7 @@ ie: send text/picture/attachment from Nokia 3310 but return **only** the results
 ## Overview
 This is running continuously on a Orangepi board as a type of server which also handles 'home base' operations (IOT, WOL, Reed Switches) over VLAN, on top of RetrOrangePi.
 
-Overall of the ***pAPI.rb*** script is a while loop that scans inbox for keywords delivered by a specified email address. Trigger command/script. Delete message as to not rerun commands. ***keyValuePairs.txt*** contains a dictionary which key's pertain to the keyword that the script looks for. If found, it's respective value will be executed as a command. If this command has **stdout** or print statements, this will be sent to the recipient defined in ***loginCreds.txt***.
+Overall the ***pAPI.rb*** script is a while loop that scans inbox for keywords delivered by a specified email address. Trigger command/script. Delete message as to not rerun commands. ***keyValuePairs.txt*** contains a dictionary which key's pertain to the keyword that the script looks for. If found, it's respective value will be executed as a command. If this command has **stdout** or print statements, this will be sent to the recipient defined in ***loginCreds.txt***.
 
 The inbox search is done by the same search function used in GMail's Web Browser UI.  
 The specific search is `from: #{recipient} in:unread #{keyword}`. This can be scaled to include other Google search features like `has attachment`, `to:address@gmail.com` and more. **Note**: the `from:` address can easily be spoofed.  
@@ -54,19 +54,17 @@ No it's not a signed .exe. Yes it's an exact copy of the **pAPI.rb** script. Don
     ocra customRubyScript.rb
 
 ## Vulnerabilities
-If a email/SMS is sent with content "PassArg(***echo Hellow Orld***)" then the command between the parens will be executed on the host machine. This arguably isn't a vulnerabilty in iteself but the fact that the sender email (`from: email.@email.com`) can easily be spoofed, is. No amount of oAuth2 or two factor authentication will change this vuln inside the code. Instead, there are plans to make some of the following changes:  
+The sender email (`from: email.@email.com`) can easily be spoofed which can result in giving other the ability to fire off any of the scripts. No amount of oAuth2 or two factor authentication will change this vuln inside the code. Instead, there are plans to make some of the following changes:  
   
 * Script will be used with an unpublicised, obfuscated email address.
-* More obscure (not hardcoded [last arg in keyValuePairs?] customizeable) PassArg() variable.
+* More obscure triggering commands and variables.
 * Dual authentication from inside received message.
   * ie: Must end with special (changing) passcode defined in txt file.
 * White/blacklist certain commands, "Are you sure you want to issue #{command} on #{system}? Y or N?", etc..  
-* Custom scripting/sandboxing.
-  * Should variable arguments need to be passed, write a script that takes sys.argv[1] but performs specific tasks.
+* Sandboxing. Only allow otherwise harmless commands/scripts to be executed. Weather, sensor data, etc...
+  * <strike>Should variable arguments need to be passed, write a script that takes sys.argv[1] but performs specific tasks.</strike>
   
-All that said, there are two versions included. One with/out the PassArg() capabilities. The ***keyValuePairs.txt*** acts as a sandbox for limiting the CLI to predefined aliases. Whereas PassArg() expands the CLI to accept variables on host machine (ping **8.8.8.8** or curl **www.website.com**) but opens you up to a potential world of hurt. My suggestion is to make secondary scripts that can process these variables but perform very specific tasks, as seen in **./customScripts** folder, rather than allowing direct access to host Machine's CLI.
-
-An example of this can be seen in the **pAPIBeer.rb** version. Send BEER("Corona") as a message, the keyword BEER will be recognized. Variable "Corona" will be parsed and executed literally as `python ./customScripts/brewery.py "Corona"`. The **`brewery.py`** uses BreweryDB API to return **.json** results of the IBU's, ABV, Name, image, Brewery of said beer. No I'm not that interested in beer, it's just an (enticing :P) example that I could throw together quickly to show API integration and outside error handling, while still restricting access.
+The ***keyValuePairs.txt*** acts as a sandbox for limiting the CLI to predefined aliases. Secondary scripts can process sent variables but perform very specific and harmless tasks. As seen in **./customScripts** folder. Paramters can be passed to custom Scripts. An example of this can be seen in the **pAPIBeer.rb** version. Send BEER("Corona") as a message, the keyword BEER will be recognized. Variable "Corona" will be parsed and passed as a parameter. So `python ./customScripts/brewery.py "Corona"` is literally being executed. The **`brewery.py`** uses BreweryDB API to return **.json** results of the IBU's, ABV, Name, image, Brewery of said beer. No I'm not that interested in beer, it's just an (enticing :P) example that I could throw together quickly to show API integration and outside error handling, while still restricting access.
 
 ## TODO
 * Omniauth integration
