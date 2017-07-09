@@ -13,8 +13,7 @@ ie: Computer repair, virus removal, anti virus installation, etc...  See: https:
 
 **Bandwidth efficiency**: Use what's already being paid for but might not normally be accessible. Use home internet to get bits of data rather than soaking up mobile data. Use in places with access to mobile phones but not internet?  
 
-**Machine Learning in the Cloud Concept**: A minimalist interface to a device that is capable of exponentially more computing power.  
-ie: send text/picture/attachment from Nokia 3310 but return **only** the results of a machine learning computer.
+**Machine Learning in the Cloud Concept**: A minimalist interface to a device that is capable of exponentially more computing power. ie: send text/picture/attachment from Nokia 3310 but return **only** the results of a machine learning computer.
   
 ## Requirements
 * [Gmail For Ruby](https://github.com/gmailgem/gmail)  
