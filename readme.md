@@ -2,7 +2,7 @@
 Use gmail to scan inbox for unread messages containing keywords. Trigger corresponding commands, scripts and alerts. Usage is very similar to text based banking, in practice, but can be customized to perform pretty much whatever.
   
 <p align="center">
-<img src='https://github.com/BiTinerary/PersonalAPI/blob/master/customScripts/smallExampleScreenShot.png'>
+<img src='https://github.com/BiTinerary/PersonalAPI/blob/master/customScripts/smallExampleScreenShots.png'>
 </p>
 
 ## Why?
