@@ -69,9 +69,9 @@ The ***keyValuePairs.txt*** acts as a sandbox for limiting the CLI to predefined
 * Omniauth integration
 * <strike>Allocate all credentials, API keys, oAuth (especially for customScripts) to one single file.</strike> 
 * Whitelist other addresses? Allows wife/coworker's address to utilize tool? Reply to address sent from, not only from txt file.
-* Add more '3rd party' script functionality.
-  * These may seem hodge podge because they are. They're individual projects, worked on at different times.
-  * Added to and most importantly coded at different levels of knowledge, patience, necessity, importance, etc...
+* <strike>Add</strike> more '3rd party' script functionality.
+  * <strike>These may seem hodge podge because they are. They're individual projects, worked on at different times.</strike>
+  * <strike>Added to and most importantly coded at different levels of knowledge, patience, necessity, importance, etc...</strike>
 * <strike>'help' prompt, similiar to other text based services which gives user list of passable arguments and their features.</strike>
 * <strike>Add function that allows custom arguments/commands to be sent to host computer **not** listed in keyValuePairs.txt
   * local computer commands that require variables. ie: ping www.google.com, whois ***8.8.8.8***</strike>
