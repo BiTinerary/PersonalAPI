@@ -11,7 +11,7 @@ ie: Computer repair, virus removal, anti virus installation, etc...  See: https:
 
 **IOT Applications**: A minimal IOT trigger which is as secure as your email login and/or LAN credentials. Essentially, a text based CLI (aliases) which doesn't require internet on the go. Shut down home computer, Wake on lan, activate servo or solenoid. Send personalized alerts or updates containing sensor info.  
 
-**Bandwidth efficiency**: Use what's already being paid for but might not normally be accessible. Use home internet to get bits of data rather than soaking up mobile data. Use in places with access to mobile phones but not internet?  
+**Bandwidth efficiency**: Use what's already being paid for but might not normally be accessible. Use home internet to get bits of data rather than soaking up mobile data. Use in places with pay per GB ISP's? ie: Alaska. 
 
 **Machine Learning in the Cloud Concept**: A minimalist interface to a device that is capable of exponentially more computing power. ie: send text/picture/attachment from Nokia 3310 but return **only** the results of a machine learning computer.
   
