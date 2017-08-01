@@ -1,5 +1,5 @@
 {"darkSkyKey": "DARKSKY-APIKEY-HERE",
 "geoLocKey": "GOOGLE-GEOLOCATION-APIKEY-HERE",
-"responseFileName": "darkSkyResponse.json",
 "breweryDB": "BreweryDB-APIKEY-HERE",
+"responseFileName": "darkSkyResponse.json",
 "zipOrAddy": "55403"}
