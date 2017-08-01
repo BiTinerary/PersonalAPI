@@ -1,8 +1,8 @@
-import gspread, datetime, re, sys
+import gspread, datetime, sys, re, os
 from oauth2client.service_account import ServiceAccountCredentials
 
 scope = ['https://spreadsheets.google.com/feeds']
-credentials = ServiceAccountCredentials.from_json_keyfile_name('./customScripts/GspreadTimeClock-d5dad30dfff8.json', scope)
+credentials = ServiceAccountCredentials.from_json_keyfile_name('%s/GspreadTimeClock-d5dad30dfff8.json' % os.getcwd(), scope)
 gc = gspread.authorize(credentials)
 sheet = gc.open('Time Sheet')
 worksheet = sheet.get_worksheet(0) # process, work on the first tab within above spreadsheet.
@@ -10,7 +10,7 @@ worksheet = sheet.get_worksheet(0) # process, work on the first tab within above
 names = ['Izaac','Izaac','Izaac']
 
 def writeToLog(input):
-	with open('./customScripts/TimeSheetLog.csv', 'a') as timeSheet:
+	with open('%s/TimeSheetLog.csv' % os.getcwd(), 'a') as timeSheet:
 		timeSheet.write(input)
 
 def WhosPunchingCard(intIn): # pass integer variable from selected radio button
