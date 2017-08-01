@@ -1,7 +1,7 @@
 from brewerydb.brewerydb import BreweryDB
-import sys, json
+import json, sys, os
 
-with open('config.json', 'r') as f:
+with open('%s/config.json' % os.getcwd(), 'r') as f:
     config = json.load(f)
 
 brewAPI = BreweryDB(config['breweryDB'])
