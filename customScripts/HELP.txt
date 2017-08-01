@@ -4,6 +4,6 @@ KILL: Shutdown system/s
 REBOOT: Reboot system/s
 CLOCKIN: PunchIn Gsheet
 CLOCKOUT: PunchOut Gsheet
-BEER(): Beer to BrewDB API
-PASSARG(): Command to Host
+BEER(X): Beer to BrewDB API
+FORECAST(X): Forecast for X days
 HELP: This Menu
