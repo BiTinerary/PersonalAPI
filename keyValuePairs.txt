@@ -1,10 +1,10 @@
 IPMAN, curl icanhazip.com
 SMALLRAT, python ./customScripts/regexIPScraper.py
 KILL, shutdown -s -t 0
-REBOOT, shutdown -r -t 0
+REBOOT, reboot
 CLOCKIN, python ./customScripts/pytime.py clockin
 CLOCKOUT, python ./customScripts/pytime.py clockout
 WEATHER,  python ./customScripts/weather.py
 FORECAST(), python ./customScripts/weather.py
 BEER(), python ./customScripts/brewery.py
-HELP, type ./customScripts/HELP.txt
+HELP, cat ./customScripts/HELP.txt
