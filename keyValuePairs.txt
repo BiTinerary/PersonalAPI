@@ -5,6 +5,6 @@ REBOOT, shutdown -r -t 0
 CLOCKIN, python ./customScripts/pytime.py clockin
 CLOCKOUT, python ./customScripts/pytime.py clockout
 WEATHER,  python ./customScripts/weather.py
-FORECAST(), python ./customScripts/weather.py forecast
+FORECAST(), python ./customScripts/weather.py
 BEER(), python ./customScripts/brewery.py
 HELP, type ./customScripts/HELP.txt
