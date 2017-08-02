@@ -1,7 +1,7 @@
 HELP, cat ./customScripts/HELP.txt
 CLOCKIN, python ./customScripts/pytime.py clockin
 CLOCKOUT, python ./customScripts/pytime.py clockout
-FORECAST(), python ./customScripts/weather.py
+FORECAST(), python ./customScripts/weather.py forecast
 WEATHER,  python ./customScripts/weather.py
 BEER(), python ./customScripts/brewery.py
 SMALLRAT, python ./customScripts/regexIPScraper.py
