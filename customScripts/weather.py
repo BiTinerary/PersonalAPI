@@ -1,6 +1,6 @@
-import requests, json, time, sys, os
+import requests, json, time, sys
 
-with open('%s/config.json' % os.getcwd(), 'r') as f:
+with open('./customScripts/config.json', 'r') as f:
 	config = json.load(f, strict=False)
 
 darkSkyKey = config['darkSkyKey']
