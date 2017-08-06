@@ -52,7 +52,7 @@ No it's not a signed .exe. Yes it's an exact copy of the **pAPI.rb** script. Don
     gem install ocra
     ocra customRubyScript.rb
 
-## Vulnerabilities
+## Vulnerability
 The sender email (`from: email.@email.com`) can easily be spoofed which can result in giving other the ability to fire off any of the scripts. No amount of oAuth2 or two factor authentication will change this vuln inside the code. Instead, there are plans to make some of the following changes:  
   
 * Script will be used with an unpublicised, obfuscated email address.
