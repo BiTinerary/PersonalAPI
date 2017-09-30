@@ -56,7 +56,7 @@ No it's not a signed .exe. Yes it's an exact copy of the **pAPI.rb** script. Don
 The sender email (`from: email.@email.com`) can easily be spoofed which can result in giving others the ability to fire off any of the scripts. No amount of oAuth2 or two factor authentication will change this vuln inside the code. Instead, there are plans to make some of the following changes:  
   
 * <strike>Script will be used with an unpublicised, obfuscated email address.</strike>
-* More obscure triggering commands and variables.
+* More <strike>obscure triggering commands and variables.</strike>
 * Dual authentication from inside received message.
   * ie: Must end with special (changing) passcode defined in txt file.
 * White/blacklist certain commands, "Are you sure you want to issue #{command} on #{system}? Y or N?", etc..  
