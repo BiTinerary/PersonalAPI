@@ -60,8 +60,8 @@ The sender email (`from: email.@email.com`) can easily be spoofed which can resu
 * Dual authentication from inside received message.
   * ie: Must end with special (changing) passcode defined in txt file.
 * White/blacklist certain commands, "Are you sure you want to issue #{command} on #{system}? Y or N?", etc..  
-* Sandboxing. Only allow otherwise harmless commands/scripts to be executed. Weather, sensor data, etc...
-  * <strike>Should variable arguments need to be passed, write a script that takes sys.argv[1] but performs specific tasks.</strike>
+* <strike>Sandboxing. Only allow otherwise harmless commands/scripts to be executed. Weather, sensor data, etc...
+  * Should variable arguments need to be passed, write a script that takes sys.argv[1] but performs specific tasks.</strike>
   
 The ***keyValuePairs.txt*** acts as a sandbox for limiting the CLI to predefined aliases. Secondary scripts can process sent variables but perform very specific and harmless tasks. As seen in **./customScripts** folder. Paramters can be passed to custom Scripts. An example of this is sending BEER("Corona") as a message, the keyword BEER will be recognized by **brewery.py** Variable "Corona" will be parsed and passed as a parameter. So `python ./customScripts/brewery.py "Corona"` is literally being executed. The **`brewery.py`** uses BreweryDB API to return **.json** results of the IBU's, ABV, Name, image, Brewery of said beer. No I'm not that interested in beer, it's just an (enticing :P) example that I could throw together quickly to show API integration and outside error handling, while still restricting access.
 
