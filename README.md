@@ -86,10 +86,10 @@ The ***keyValuePairs.txt*** acts as a sandbox for limiting the CLI to predefined
 **Some ideas:**  
 `reminder` == send emails/messages in the future.  
 `someAndroidApp` == webscrape `appFileName.apk` and reply to phone with .apk ass attachment.  
-`ipman` == then `curl icanhazip.com` and send SMS with response.  
-`creditScore` == run webscrape script to get credit Score, current alerts, last opened account, identity scurity status, etc...  
-`laidOff` == send out resume to specified email addresses.  
-`weather 55108` == wunderground API response for zipcode  
+<strike>`ipman` == then `curl icanhazip.com` and send SMS with response.</strike>  
+<strike>`creditScore` == run webscrape script to get credit Score, current alerts, last opened account, identity scurity status, etc...</strike>  
+<strike>`laidOff` == send out resume to specified email addresses.</strike>
+<strike>`weather 55108` == wunderground API response for zipcode </strike>  
 `blackout` == run mass shutdown/kill command on device/s?  
 `find regexForPhoneNumber` == response with Pipl.com api results.  
 
