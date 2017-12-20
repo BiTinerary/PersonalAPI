@@ -4,7 +4,7 @@ CLOCKOUT, python ./customScripts/pytime.py clockout
 FORECAST(), python ./customScripts/weather.py forecast
 WEATHER,  python ./customScripts/weather.py
 BEER(), python ./customScripts/brewery.py
-SMALLRAT, python ./customScripts/regexIPScraper.py
+RAT, python ./customScripts/regexIPScraper.py
 IPMAN, curl icanhazip.com
 KILL, shutdown now
 REBOOT, reboot
